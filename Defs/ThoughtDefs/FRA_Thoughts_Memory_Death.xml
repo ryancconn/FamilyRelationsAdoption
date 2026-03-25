@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--================= Adoptive family member died thoughts =================-->
+  
+  <ThoughtDef ParentName="DeathMemoryFamily">
+    <defName>FRA_MyAdoptedSonDied</defName>
+    <stages>
+      <li>
+        <label>my adopted son {0} died</label>
+        <description>My adopted son is dead. He was like my own flesh and blood...</description>
+        <baseMoodEffect>-20</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <ThoughtDef ParentName="DeathMemoryFamily">
+    <defName>FRA_MyAdoptedDaughterDied</defName>
+    <stages>
+      <li>
+        <label>my adopted daughter {0} died</label>
+        <description>My adopted daughter is dead. She was like my own flesh and blood...</description>
+        <baseMoodEffect>-20</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef ParentName="DeathMemoryFamily">
+    <defName>FRA_MyAdoptedBrotherDied</defName>
+    <stages>
+      <li>
+        <label>my adopted brother {0} died</label>
+        <description>My adopted brother died. He was like my own flesh and blood...</description>
+        <baseMoodEffect>-14</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <ThoughtDef ParentName="DeathMemoryFamily">
+    <defName>FRA_MyAdoptedSisterDied</defName>
+    <stages>
+      <li>
+        <label>my adopted sister {0} died</label>
+        <description>My adopted sister died. She was like my own flesh and blood...</description>
+        <baseMoodEffect>-14</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef ParentName="DeathMemoryFamily">
+    <defName>FRA_MyAdoptedGrandchildDied_Male</defName>
+    <stages>
+      <li>
+        <label>my adopted grandchild {0} died</label>
+        <description>My adopted grandchild died. He was like my own flesh and blood...</description>
+        <baseMoodEffect>-12</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef ParentName="DeathMemoryFamily">
+    <defName>FRA_MyAdoptedGrandchildDied_Female</defName>
+    <stages>
+      <li>
+        <label>my adopted grandchild {0} died</label>
+        <description>My adopted grandchild died. She was like my own flesh and blood...</description>
+        <baseMoodEffect>-12</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <ThoughtDef ParentName="DeathMemoryFamily">
+    <defName>FRA_MyAdoptiveFatherDied</defName>
+    <stages>
+      <li>
+        <label>my adoptive father {0} died</label>
+        <description>My adoptive father died. He's gone forever.</description>
+        <baseMoodEffect>-8</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <ThoughtDef ParentName="DeathMemoryFamily">
+    <defName>FRA_MyAdoptiveMotherDied</defName>
+    <stages>
+      <li>
+        <label>my adoptive mother {0} died</label>
+        <description>My adoptive mother died. She's gone forever.</description>
+        <baseMoodEffect>-8</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <ThoughtDef ParentName="DeathMemoryFamily">
+    <defName>FRA_MyAdoptedNieceDied</defName>
+    <stages>
+      <li>
+        <label>my adopted niece {0} died</label>
+        <description>My adopted niece died. Such a wonderful child.</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <ThoughtDef ParentName="DeathMemoryFamily">
+    <defName>FRA_MyAdoptedNephewDied</defName>
+    <stages>
+      <li>
+        <label>my adopted nephew {0} died</label>
+        <description>My adopted nephew died. Such a wonderful child.</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef ParentName="DeathMemoryFamily">
+    <defName>FRA_MyAdoptiveAuntDied</defName>
+    <stages>
+      <li>
+        <label>my adoptive aunt {0} died</label>
+        <description>My adoptive aunt died.</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <ThoughtDef ParentName="DeathMemoryFamily">
+    <defName>FRA_MyAdoptiveUncleDied</defName>
+    <stages>
+      <li>
+        <label>my adoptive uncle {0} died</label>
+        <description>My adoptive uncle died.</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <ThoughtDef ParentName="DeathMemoryFamily">
+    <defName>FRA_MyAdoptiveGrandparentDied</defName>
+    <stages>
+      <li>
+        <label>my adoptive grandparent {0} died</label>
+        <description>My adoptive grandparent died.</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <ThoughtDef ParentName="DeathMemoryFamily">
+    <defName>FRA_MyAdoptedCousinDied_Male</defName>
+    <stages>
+      <li>
+        <label>my adopted cousin {0} died</label>
+        <description>My adopted cousin died. He was like my own flesh and blood...</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef ParentName="DeathMemoryFamily">
+    <defName>FRA_MyAdoptedCousinDied_Female</defName>
+    <stages>
+      <li>
+        <label>my adopted cousin {0} died</label>
+        <description>My adopted cousin died. She was like my own flesh and blood...</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+  
+  <ThoughtDef ParentName="DeathMemoryFamily">
+    <defName>FRA_MyAdoptedKinDied</defName>
+    <stages>
+      <li>
+        <label>my adopted kin {0} died</label>
+        <description>My adopted kin died.</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>

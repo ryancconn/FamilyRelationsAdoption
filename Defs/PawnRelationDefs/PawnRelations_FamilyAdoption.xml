@@ -9,12 +9,12 @@
     <label>adoptive father</label>
     <labelFemale>adoptive mother</labelFemale>
     <importance>195</importance>
-    <diedThought>MyFatherDied</diedThought>
-    <diedThoughtFemale>MyMotherDied</diedThoughtFemale>
-    <killedThought>KilledMyFather</killedThought>
-    <killedThoughtFemale>KilledMyMother</killedThoughtFemale>
-    <lostThought>MyFatherLost</lostThought>
-    <lostThoughtFemale>MyMotherLost</lostThoughtFemale>
+    <diedThought>FRA_MyAdoptiveFatherDied</diedThought>
+    <diedThoughtFemale>FRA_MyAdoptiveMotherDied</diedThoughtFemale>
+    <killedThought>FRA_KilledMyAdoptiveFather</killedThought>
+    <killedThoughtFemale>FRA_KilledMyAdoptiveMother</killedThoughtFemale>
+    <lostThought>FRA_MyAdoptiveFatherLost</lostThought>
+    <lostThoughtFemale>FRA_MyAdoptiveMotherLost</lostThoughtFemale>
     <soldThoughts>
       <li>SoldMyLovedOne</li>
     </soldThoughts>
@@ -32,12 +32,12 @@
     <label>adopted son</label>
     <labelFemale>adopted daughter</labelFemale>
     <importance>190</importance>
-    <diedThought>MySonDied</diedThought>
-    <diedThoughtFemale>MyDaughterDied</diedThoughtFemale>
-    <killedThought>KilledMySon</killedThought>
-    <killedThoughtFemale>KilledMyDaughter</killedThoughtFemale>
-    <lostThought>MySonLost</lostThought>
-    <lostThoughtFemale>MyDaughterLost</lostThoughtFemale>
+    <diedThought>FRA_MyAdoptedSonDied</diedThought>
+    <diedThoughtFemale>FRA_MyAdoptedDaughterDied</diedThoughtFemale>
+    <killedThought>FRA_KilledMyAdoptedSon</killedThought>
+    <killedThoughtFemale>FRA_KilledMyAdoptedDaughter</killedThoughtFemale>
+    <lostThought>FRA_MyAdoptedSonLost</lostThought>
+    <lostThoughtFemale>FRA_MyAdoptedDaughterLost</lostThoughtFemale>
     <soldThoughts>
       <li>SoldMyLovedOne</li>
     </soldThoughts>
@@ -55,12 +55,12 @@
     <label>adopted brother</label>
     <labelFemale>adoptive sister</labelFemale>
     <importance>185</importance>
-    <diedThought>MyBrotherDied</diedThought>
-    <diedThoughtFemale>MySisterDied</diedThoughtFemale>
-    <killedThought>KilledMyBrother</killedThought>
-    <killedThoughtFemale>KilledMySister</killedThoughtFemale>
-    <lostThought>MyBrotherLost</lostThought>
-    <lostThoughtFemale>MySisterLost</lostThoughtFemale>
+    <diedThought>FRA_MyAdoptedBrotherDied</diedThought>
+    <diedThoughtFemale>FRA_MyAdoptedSisterDied</diedThoughtFemale>
+    <killedThought>FRA_KilledMyAdoptedBrother</killedThought>
+    <killedThoughtFemale>FRA_KilledMyAdoptedSister</killedThoughtFemale>
+    <lostThought>FRA_MyAdoptedBrotherLost</lostThought>
+    <lostThoughtFemale>FRA_MyAdoptedSisterLost</lostThoughtFemale>
     <soldThoughts>
       <li>SoldMyLovedOne</li>
     </soldThoughts>
@@ -78,9 +78,9 @@
     <label>adoptive grandfather</label>
     <labelFemale>adoptive grandmother</labelFemale>
     <importance>175</importance>
-    <diedThought>MyGrandparentDied</diedThought>
-    <killedThought>KilledMyKin</killedThought>
-    <lostThought>MyGrandparentLost</lostThought>
+    <diedThought>FRA_MyAdoptiveGrandparentDied</diedThought>
+    <killedThought>FRA_KilledMyAdoptedKin</killedThought>
+    <lostThought>FRA_MyAdoptiveGrandparentLost</lostThought>
     <soldThoughts>
       <li>SoldMyLovedOne</li>
     </soldThoughts>
@@ -96,9 +96,10 @@
     <label>adopted grandson</label>
     <labelFemale>adopted granddaughter</labelFemale>
     <importance>170</importance>
-    <diedThought>MyGrandchildDied</diedThought>
-    <killedThought>KilledMyKin</killedThought>
-    <lostThought>MyGrandchildLost</lostThought>
+    <diedThought>FRA_MyAdoptedGrandchildDied_Male</diedThought>
+    <diedThoughtFemale>FRA_MyAdoptedGrandchildDied_Female</diedThoughtFemale>
+    <killedThought>FRA_KilledMyAdoptedKin</killedThought>
+    <lostThought>FRA_MyAdoptedGrandchildLost</lostThought>
     <soldThoughts>
       <li>SoldMyLovedOne</li>
     </soldThoughts>
@@ -114,11 +115,11 @@
     <label>adopted nephew</label>
     <labelFemale>adopted niece</labelFemale>
     <importance>165</importance>
-    <diedThought>MyNephewDied</diedThought>
-    <diedThoughtFemale>MyNieceDied</diedThoughtFemale>
-    <killedThought>KilledMyKin</killedThought>
-    <lostThought>MyNephewLost</lostThought>
-    <lostThoughtFemale>MyNieceLost</lostThoughtFemale>
+    <diedThought>FRA_MyAdoptedNephewDied</diedThought>
+    <diedThoughtFemale>FRA_MyAdoptedNieceDied</diedThoughtFemale>
+    <killedThought>FRA_KilledMyAdoptedKin</killedThought>
+    <lostThought>FRA_MyAdoptedNephewLost</lostThought>
+    <lostThoughtFemale>FRA_MyAdoptedNieceLost</lostThoughtFemale>
     <soldThoughts>
       <li>SoldMyLovedOne</li>
     </soldThoughts>
@@ -134,11 +135,11 @@
     <label>adoptive uncle</label>
     <labelFemale>adoptive aunt</labelFemale>
     <importance>160</importance>
-    <diedThought>MyUncleDied</diedThought>
-    <diedThoughtFemale>MyAuntDied</diedThoughtFemale>
-    <killedThought>KilledMyKin</killedThought>
-    <lostThought>MyUncleLost</lostThought>
-    <lostThoughtFemale>MyAuntLost</lostThoughtFemale>
+    <diedThought>FRA_MyAdoptiveUncleDied</diedThought>
+    <diedThoughtFemale>FRA_MyAdoptiveAuntDied</diedThoughtFemale>
+    <killedThought>FRA_KilledMyAdoptedKin</killedThought>
+    <lostThought>FRA_MyAdoptiveUncleLost</lostThought>
+    <lostThoughtFemale>FRA_MyAdoptiveAuntLost</lostThoughtFemale>
     <soldThoughts>
       <li>SoldMyLovedOne</li>
     </soldThoughts>
@@ -154,9 +155,10 @@
     <defName>FRA_AdoptedCousin</defName>
     <label>adopted cousin</label>
     <importance>155</importance>
-    <diedThought>MyCousinDied</diedThought>
-    <killedThought>KilledMyKin</killedThought>
-    <lostThought>MyCousinLost</lostThought>
+    <diedThought>FRA_MyAdoptedCousinDied_Male</diedThought>
+    <diedThoughtFemale>FRA_MyAdoptedCousinDied_Female</diedThoughtFemale>
+    <killedThought>FRA_KilledMyAdoptedKin</killedThought>
+    <lostThought>FRA_MyAdoptedCousinLost</lostThought>
     <soldThoughts>
       <li>SoldMyLovedOne</li>
     </soldThoughts>
@@ -175,9 +177,9 @@
     <label>adoptive great grandfather</label>
     <labelFemale>adoptive great grandmother</labelFemale>
     <importance>120</importance>
-    <diedThought>MyKinDied</diedThought>
-    <killedThought>KilledMyKin</killedThought>
-    <lostThought>MyKinLost</lostThought>
+    <diedThought>FRA_MyAdoptedKinDied</diedThought>
+    <killedThought>FRA_KilledMyAdoptedKin</killedThought>
+    <lostThought>FRA_MyAdoptedKinLost</lostThought>
     <opinionOffset>5</opinionOffset>
     <romanceChanceFactor>0.45</romanceChanceFactor>
     <implied>true</implied>
@@ -190,9 +192,9 @@
     <label>adopted great grandson</label>
     <labelFemale>adopted great granddaughter</labelFemale>
     <importance>115</importance>
-    <diedThought>MyKinDied</diedThought>
-    <killedThought>KilledMyKin</killedThought>
-    <lostThought>MyKinLost</lostThought>
+    <diedThought>FRA_MyAdoptedKinDied</diedThought>
+    <killedThought>FRA_KilledMyAdoptedKin</killedThought>
+    <lostThought>FRA_MyAdoptedKinLost</lostThought>
     <opinionOffset>5</opinionOffset>
     <romanceChanceFactor>0.45</romanceChanceFactor>
     <implied>true</implied>
@@ -205,9 +207,9 @@
     <label>adoptive granduncle</label>
     <labelFemale>adoptive grandaunt</labelFemale>
     <importance>110</importance>
-    <diedThought>MyKinDied</diedThought>
-    <killedThought>KilledMyKin</killedThought>
-    <lostThought>MyKinLost</lostThought>
+    <diedThought>FRA_MyAdoptedKinDied</diedThought>
+    <killedThought>FRA_KilledMyAdoptedKin</killedThought>
+    <lostThought>FRA_MyAdoptedKinLost</lostThought>
     <opinionOffset>5</opinionOffset>
     <romanceChanceFactor>0.45</romanceChanceFactor>
     <implied>true</implied>
@@ -219,9 +221,9 @@
     <label>adopted grandnephew</label>
     <labelFemale>adopted grandniece</labelFemale>
     <importance>105</importance>
-    <diedThought>MyKinDied</diedThought>
-    <killedThought>KilledMyKin</killedThought>
-    <lostThought>MyKinLost</lostThought>
+    <diedThought>FRA_MyAdoptedKinDied</diedThought>
+    <killedThought>FRA_KilledMyAdoptedKin</killedThought>
+    <lostThought>FRA_MyAdoptedKinLost</lostThought>
     <opinionOffset>5</opinionOffset>
     <romanceChanceFactor>0.45</romanceChanceFactor>
     <implied>true</implied>
@@ -232,9 +234,9 @@
     <defName>FRA_AdoptedCousinOnceRemoved</defName>
     <label>adopted cousin once removed</label>
     <importance>100</importance>
-    <diedThought>MyKinDied</diedThought>
-    <killedThought>KilledMyKin</killedThought>
-    <lostThought>MyKinLost</lostThought>
+    <diedThought>FRA_MyAdoptedKinDied</diedThought>
+    <killedThought>FRA_KilledMyAdoptedKin</killedThought>
+    <lostThought>FRA_MyAdoptedKinLost</lostThought>
     <opinionOffset>5</opinionOffset>
     <romanceChanceFactor>0.45</romanceChanceFactor>
     <implied>true</implied>
@@ -245,9 +247,9 @@
     <defName>FRA_AdoptedSecondCousin</defName>
     <label>adopted second cousin</label>
     <importance>95</importance>
-    <diedThought>MyKinDied</diedThought>
-    <killedThought>KilledMyKin</killedThought>
-    <lostThought>MyKinLost</lostThought>
+    <diedThought>FRA_MyAdoptedKinDied</diedThought>
+    <killedThought>FRA_KilledMyAdoptedKin</killedThought>
+    <lostThought>FRA_MyAdoptedKinLost</lostThought>
     <opinionOffset>5</opinionOffset>
     <romanceChanceFactor>0.4</romanceChanceFactor>
     <implied>true</implied>
@@ -260,9 +262,9 @@
     <defName>FRA_AdoptedKin</defName>
     <label>adopted kin</label>
     <importance>90</importance>
-    <diedThought>MyKinDied</diedThought>
-    <killedThought>KilledMyKin</killedThought>
-    <lostThought>MyKinLost</lostThought>
+    <diedThought>FRA_MyAdoptedKinDied</diedThought>
+    <killedThought>FRA_KilledMyAdoptedKin</killedThought>
+    <lostThought>FRA_MyAdoptedKinLost</lostThought>
     <opinionOffset>5</opinionOffset>
     <romanceChanceFactor>0.4</romanceChanceFactor>
     <implied>true</implied>

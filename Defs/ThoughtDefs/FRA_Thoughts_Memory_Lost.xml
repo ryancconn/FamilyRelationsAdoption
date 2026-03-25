@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <!--================= Adopted amily member lost =================-->
+
+  <ThoughtDef ParentName="LostMemoryFamily">
+    <defName>FRA_MyAdoptedSonLost</defName>
+    <stages>
+      <li>
+        <label>my adopted son {0} lost</label>
+        <description>My adopted son has gone lost. I hope he will get back to us someday.</description>
+        <baseMoodEffect>-20</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef ParentName="LostMemoryFamily">
+    <defName>FRA_MyAdoptedDaughterLost</defName>
+    <stages>
+      <li>
+        <label>my adopted daughter {0} lost</label>
+        <description>My adopted daughter has gone lost. I hope she will get back to us someday.</description>
+        <baseMoodEffect>-20</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef ParentName="LostMemoryFamily">
+    <defName>FRA_MyAdoptedBrotherLost</defName>
+    <stages>
+      <li>
+        <label>my adopted brother {0} lost</label>
+        <description>My adopted brother has gone lost. I hope he will get back to us someday.</description>
+        <baseMoodEffect>-14</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef ParentName="LostMemoryFamily">
+    <defName>FRA_MyAdoptedSisterLost</defName>
+    <stages>
+      <li>
+        <label>my adopted sister {0} lost</label>
+        <description>My adopted sister has gone lost. I hope she will get back to us someday.</description>
+        <baseMoodEffect>-14</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef ParentName="LostMemoryFamily">
+    <defName>FRA_MyAdoptedGrandchildLost</defName>
+    <stages>
+      <li>
+        <label>my adopted grandchild {0} lost</label>
+        <description>My adopted grandchild has gone lost. I hope they will get back to us someday.</description>
+        <baseMoodEffect>-12</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef ParentName="LostMemoryFamily">
+    <defName>FRA_MyAdoptiveFatherLost</defName>
+    <stages>
+      <li>
+        <label>my adoptive father {0} lost</label>
+        <description>My adoptive father has gone lost. I hope he will get back to us someday.</description>
+        <baseMoodEffect>-8</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef ParentName="LostMemoryFamily">
+    <defName>FRA_MyAdoptiveMotherLost</defName>
+    <stages>
+      <li>
+        <label>my adoptive mother {0} lost</label>
+        <description>My adoptive mother has gone lost. I hope she will get back to us someday.</description>
+        <baseMoodEffect>-8</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef ParentName="LostMemoryFamily">
+    <defName>FRA_MyAdoptedNieceLost</defName>
+    <stages>
+      <li>
+        <label>my adopted niece {0} lost</label>
+        <description>My adopted niece has gone lost. I hope she will get back to us someday.</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef ParentName="LostMemoryFamily">
+    <defName>FRA_MyAdoptedNephewLost</defName>
+    <stages>
+      <li>
+        <label>my adopted nephew {0} lost</label>
+        <description>My adopted nephew has gone lost. I hope he will get back to us someday.</description>
+        <baseMoodEffect>-5</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef ParentName="LostMemoryFamily">
+    <defName>FRA_MyAdoptiveAuntLost</defName>
+    <stages>
+      <li>
+        <label>my adoptive aunt {0} lost</label>
+        <description>My adoptive aunt has gone lost. I hope she will get back to us someday.</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef ParentName="LostMemoryFamily">
+    <defName>FRA_MyAdoptiveUncleLost</defName>
+    <stages>
+      <li>
+        <label>my adoptive uncle {0} lost</label>
+        <description>My adoptive uncle has gone lost. I hope he will get back to us someday.</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef ParentName="LostMemoryFamily">
+    <defName>FRA_MyAdoptiveGrandparentLost</defName>
+    <stages>
+      <li>
+        <label>my adoptive grandparent {0} lost</label>
+        <description>My adoptive grandparent has gone lost.</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef ParentName="LostMemoryFamily">
+    <defName>FRA_MyAdoptedCousinLost</defName>
+    <stages>
+      <li>
+        <label>my adopted cousin {0} lost</label>
+        <description>My adopted cousin has gone lost.</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef ParentName="LostMemoryFamily">
+    <defName>FRA_MyAdoptedKinLost</defName>
+    <stages>
+      <li>
+        <label>my adopted kin {0} lost</label>
+        <description>My adopted kin has gone lost.</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+</Defs>
