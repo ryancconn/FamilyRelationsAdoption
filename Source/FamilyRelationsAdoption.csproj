@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <AssemblyName>FamilyRelationsAdoption</AssemblyName>
+    <Description>TBD description</Description>
+    <Version>0.0.1</Version>
+    <Authors>Rycon</Authors>
+    <OutputPath>../Assemblies</OutputPath>
+    <LangVersion>latest</LangVersion>
+    <DebugType>embedded</DebugType>
+    <!-- <ImplicitUsings>enable</ImplicitUsings> -->
+    <!-- <Nullable>enable</Nullable> -->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.4633" />
+  </ItemGroup>
+
+</Project>
