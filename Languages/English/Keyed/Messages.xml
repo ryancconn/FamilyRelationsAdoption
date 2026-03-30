@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+    <!-- Used in FRA_FloatMenuOptionProvider_Adopt.cs -->
+    <FRA_HasAdoptedAsChild>{0} has adopted {1} as {2} child!</FRA_HasAdoptedAsChild>
+
+    <!-- Used in FRA_JobDriver_Adopt.cs -->
+    <FRA_AdoptionFailedUnexpected>{0} was unable to adopt {1}.</FRA_AdoptionFailedUnexpected>
+
+</LanguageData>

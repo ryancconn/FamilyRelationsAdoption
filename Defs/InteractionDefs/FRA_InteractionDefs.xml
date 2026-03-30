@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <InteractionDef>
+    <defName>FRA_AdoptionProposal</defName>
+    <label>adoption proposal</label>
+    <workerClass>FamilyRelationsAdoption.FRA_InteractionWorker_AdoptionProposal</workerClass>
+    <symbol>AdoptionProposal</symbol>
+    <logRulesInitiator>
+      <rulesStrings>
+          <li>r_logentry->[INITIATOR_nameDef] asked [RECIPIENT_nameDef] if they would like to be adopted.</li>
+      </rulesStrings>
+    </logRulesInitiator>
+  </InteractionDef>
+
+  <RulePackDef>
+    <defName>FRA_Sentence_AdoptionProposalAccepted</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>sent->[RECIPIENT_nameDef] agreed and has been adopted by [INITIATOR_nameDef].</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+</Defs>

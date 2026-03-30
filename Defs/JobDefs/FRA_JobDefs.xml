@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <JobDef>
+		<defName>FRA_AdoptJob</defName>
+		<driverClass>FamilyRelationsAdoption.FRA_JobDriver_Adopt</driverClass>
+		<reportString>adopting TargetA.</reportString>
+    <!-- <suspendable>false</suspendable>
+		<casualInterruptible>false</casualInterruptible> -->
+	</JobDef>
+
+</Defs>

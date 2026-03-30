@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+    <!-- Used in FRA_FloatMenuOptionProvider_Adopt.cs -->
+    <FRA_AdoptAsChild>Adopt {0} as child</FRA_AdoptAsChild>
+    <FRA_CantAdoptAdult>Can't adopt an adult</FRA_CantAdoptAdult>
+    <FRA_MustBeAdultToAdopt>Must be an adult to adopt a child</FRA_MustBeAdultToAdopt>
+
+</LanguageData>

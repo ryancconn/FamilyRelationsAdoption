@@ -36,6 +36,18 @@ namespace FamilyRelationsAdoption
 
         public static PawnRelationDef FRA_AdoptedKin; 
 
+        public static JobDef FRA_AdoptJob; 
+
+        public static InteractionDef FRA_AdoptionProposal; 
+
+        public static RulePackDef FRA_Sentence_AdoptionProposalAccepted; 
+
+        public static TaleDef FRA_WasAdopted; 
+
+        public static ThoughtDef FRA_JustGotAdopted; 
+
+        public static ThoughtDef FRA_JustAdoptedChild; 
+
         static FRA_DefOf()
         {
             DefOfHelper.EnsureInitializedInCtor(typeof(FRA_DefOf));

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <AbilityDef ParentName="SpeechBase">
+    <defName>AdoptionRitual</defName>
+    <label>adoption ritual</label>
+    <description>Adopt someone as your child.</description>
+    <iconPath>UI/Abilities/ConversionRitual</iconPath>
+    <!-- <groupDef>Moralist</groupDef> -->
+    <!-- <overrideGroupCooldown>True</overrideGroupCooldown> -->
+    <cooldownTicksRange>480000</cooldownTicksRange>
+    <targetRequired>True</targetRequired>
+    <gizmoClass>Command_Ability</gizmoClass>
+    <comps>
+      <li Class="CompProperties_AbilityStartConversion">
+        <ritualDef>Conversion</ritualDef>
+        <targetRoleId>convertee</targetRoleId>
+      </li>
+    </comps>
+    <verbProperties>
+      <targetParams>
+        <canTargetAnimals>false</canTargetAnimals>
+        <canTargetSelf>false</canTargetSelf>
+        <canTargetBuildings>false</canTargetBuildings>
+        <canTargetMechs>false</canTargetMechs>
+        <canTargetSubhumans>false</canTargetSubhumans>
+        <onlyTargetColonistsOrPrisonersOrSlaves>false</onlyTargetColonistsOrPrisonersOrSlaves>
+      </targetParams>
+    </verbProperties>
+    <!-- <requiredMemes>
+      <li>Proselytizer</li>
+    </requiredMemes> -->
+  </AbilityDef>
+
+</Defs>

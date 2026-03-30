@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <TaleDef>
+    <defName>FRA_WasAdopted</defName>
+    <label>was adopted</label>
+    <taleClass>Tale_DoublePawn</taleClass>
+    <type>PermanentHistorical</type>
+    <baseInterest>15</baseInterest>
+    <firstPawnSymbol>ADOPTER</firstPawnSymbol>
+    <secondPawnSymbol>ADOPTEE</secondPawnSymbol>
+    <rulePack>
+      <rulesStrings>
+        <li>tale_noun->[ADOPTER_nameDef] adopting [ADOPTEE_nameDef]</li>
+        <li>image->[ADOPTER_nameFull] offering home and a family to [ADOPTEE_nameFull] [circumstance_group]</li>
+        <li>image->[ADOPTER_nameFull] leading [ADOPTEE_nameFull] by the hand to their new home [circumstance_group]</li>
+        <li>image->[ADOPTER_nameFull] promising to love and care for [ADOPTEE_nameFull] as a parent does for their child [circumstance_group]</li>
+        <li>circumstance_phrase->while others look on with warmth</li>
+        <li>circumstance_phrase->while [ADOPTEE_nameDef] looks up hopefully</li>
+        <li>circumstance_phrase->while [ADOPTEE_nameDef] looks up with hesitation</li>
+        <li>circumstance_phrase->in a beautiful sunlit scene</li>
+        <li>desc_sentence->[ADOPTER_nameDef] is embracing [ADOPTEE_nameDef].</li>
+        <li>desc_sentence->[ADOPTER_nameDef] is offering a hand to [ADOPTEE_nameDef].</li>
+        <li>desc_sentence->[ADOPTER_nameDef] is holding the hand of [ADOPTEE_nameDef].</li>
+        <li>desc_sentence->[ADOPTEE_nameDef] is smiling up at [ADOPTER_nameDef].</li>
+      </rulesStrings>
+    </rulePack>
+  </TaleDef>
+
+</Defs>
