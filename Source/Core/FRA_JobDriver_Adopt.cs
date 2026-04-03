@@ -43,7 +43,7 @@ namespace FamilyRelationsAdoption
                     AdopteePawn.jobs.SuspendCurrentJob(JobCondition.InterruptForced);
                     if (!pawn.interactions.CanInteractNowWith(AdopteePawn, FRA_DefOf.FRA_AdoptionProposal))
                     {
-                        Messages.Message("AdoptionFailedUnexpected".Translate(pawn, AdopteePawn), MessageTypeDefOf.NegativeEvent, historical: false);
+                        Messages.Message("FRA_AdoptionFailedUnexpected".Translate(pawn, AdopteePawn), MessageTypeDefOf.NegativeEvent, historical: false);
                     }
                 }
             });

@@ -9,8 +9,6 @@
     <OutputPath>../Assemblies</OutputPath>
     <LangVersion>latest</LangVersion>
     <DebugType>embedded</DebugType>
-    <!-- <ImplicitUsings>enable</ImplicitUsings> -->
-    <!-- <Nullable>enable</Nullable> -->
   </PropertyGroup>
 
   <ItemGroup>

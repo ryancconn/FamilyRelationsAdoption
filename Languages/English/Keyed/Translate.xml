@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+
+    <!-- Used in FRA_FloatMenuOptionProvider_Adopt.cs -->
+    <FRA_AdoptAsChild>Adopt {0} as child</FRA_AdoptAsChild>
+    <FRA_CantAdoptAdult>Can't adopt an adult</FRA_CantAdoptAdult>
+    <FRA_MustBeAdultToAdopt>Must be an adult to adopt a child</FRA_MustBeAdultToAdopt>
+    <FRA_HasAdoptedAsChild>{0} has adopted {1} as {2} child!</FRA_HasAdoptedAsChild>
+
+    <!-- Used in FRA_JobDriver_Adopt.cs -->
+    <FRA_AdoptionFailedUnexpected>{0} was unable to adopt {1}.</FRA_AdoptionFailedUnexpected>
+
+    <!-- Used in FRA_InteractionWorker_AdoptionProposal.cs -->
+    <FRA_LetterLabelAdoption>Child adopted</FRA_LetterLabelAdoption>
+    <FRA_LetterAdoption>{1} is now the adopted {2} of {0}.</FRA_LetterAdoption>
+
+    <!-- Used in FamilyRelationsAdoptions.cs -->
+    <FRA_XmlSettingsComingSoon>Coming soon probably! Let me know if you have any requests.</FRA_XmlSettingsComingSoon>
+
+</LanguageData>

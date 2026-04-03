@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<LanguageData>
-
-  <!-- Adoption -->
-  <FRA_LetterLabelAdoption>Child adopted!</FRA_LetterLabelAdoption>
-  <FRA_LetterAdoption>{1} is now the adopted {2} of {0}.</FRA_LetterAdoption>
-
-</LanguageData>

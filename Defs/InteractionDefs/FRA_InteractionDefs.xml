@@ -6,9 +6,11 @@
     <label>adoption proposal</label>
     <workerClass>FamilyRelationsAdoption.FRA_InteractionWorker_AdoptionProposal</workerClass>
     <symbol>AdoptionProposal</symbol>
+    <initiatorThought>FRA_JustAdoptedChild</initiatorThought>
+    <recipientThought>FRA_JustGotAdopted</recipientThought>
     <logRulesInitiator>
       <rulesStrings>
-          <li>r_logentry->[INITIATOR_nameDef] asked [RECIPIENT_nameDef] if they would like to be adopted.</li>
+          <li>r_logentry->[INITIATOR_nameDef] asked [RECIPIENT_nameDef] if [RECIPIENT_pronoun] would like to be adopted.</li>
       </rulesStrings>
     </logRulesInitiator>
   </InteractionDef>

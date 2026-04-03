@@ -101,4 +101,34 @@
     </stages>
   </ThoughtDef>
 
+  <!-- Post-adoption mood -->
+
+  <ThoughtDef>
+    <defName>FRA_JustGotAdopted</defName>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <durationDays>8</durationDays>
+    <stackLimit>2</stackLimit>
+    <stages>
+      <li>
+        <label>I got adopted</label>
+        <description>I got adopted! I feel like I really belong here.</description>  
+        <baseMoodEffect>10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>FRA_JustAdoptedChild</defName>
+    <thoughtClass>Thought_Memory</thoughtClass>
+    <durationDays>8</durationDays>
+    <stackLimit>4</stackLimit>
+    <stages>
+      <li>
+        <label>I adopted a child</label>
+        <description>I adopted a child. My family has grown.</description>  
+        <baseMoodEffect>10</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
 </Defs>
