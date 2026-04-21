@@ -42,11 +42,19 @@ namespace FamilyRelationsAdoption
 
         public static RulePackDef FRA_Sentence_AdoptionProposalAccepted; 
 
+        public static RulePackDef FRA_Sentence_AdoptionProposalRejected; 
+
         public static TaleDef FRA_WasAdopted; 
 
         public static ThoughtDef FRA_JustGotAdopted; 
 
         public static ThoughtDef FRA_JustAdoptedChild; 
+
+        public static ThoughtDef FRA_FailedAdoptionProposalOnMe; 
+
+        public static ThoughtDef FRA_RejectedMyAdoptionProposal; 
+
+        public static ThoughtDef FRA_RejectedMyAdoptionProposalMood; 
 
         static FRA_DefOf()
         {

@@ -6,8 +6,6 @@
     <label>adoption proposal</label>
     <workerClass>FamilyRelationsAdoption.FRA_InteractionWorker_AdoptionProposal</workerClass>
     <symbol>AdoptionProposal</symbol>
-    <initiatorThought>FRA_JustAdoptedChild</initiatorThought>
-    <recipientThought>FRA_JustGotAdopted</recipientThought>
     <logRulesInitiator>
       <rulesStrings>
           <li>r_logentry->[INITIATOR_nameDef] asked [RECIPIENT_nameDef] if [RECIPIENT_pronoun] would like to be adopted.</li>
@@ -20,6 +18,15 @@
     <rulePack>
       <rulesStrings>
         <li>sent->[RECIPIENT_nameDef] agreed and has been adopted by [INITIATOR_nameDef].</li>
+      </rulesStrings>
+    </rulePack>
+  </RulePackDef>
+
+  <RulePackDef>
+    <defName>FRA_Sentence_AdoptionProposalRejected</defName>
+    <rulePack>
+      <rulesStrings>
+        <li>sent->[RECIPIENT_nameDef] declined [INITIATOR_nameDef]'s offer to adopt [RECIPIENT_objective].</li>
       </rulesStrings>
     </rulePack>
   </RulePackDef>

@@ -131,4 +131,52 @@
     </stages>
   </ThoughtDef>
 
+  <ThoughtDef>
+    <defName>FRA_FailedAdoptionProposalOnMe</defName>
+    <thoughtClass>Thought_MemorySocial</thoughtClass>
+    <durationDays>4</durationDays>
+    <stackLimit>300</stackLimit>
+    <stackLimitForSameOtherPawn>5</stackLimitForSameOtherPawn>
+    <stackedEffectMultiplier>0.9</stackedEffectMultiplier>
+    <stages>
+      <li>
+        <label>failed to adopt me</label>
+        <baseOpinionOffset>-2</baseOpinionOffset>
+      </li>
+    </stages>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>FRA_RejectedMyAdoptionProposal</defName>
+    <thoughtClass>Thought_MemorySocial</thoughtClass>
+    <durationDays>4</durationDays>
+    <stackLimit>300</stackLimit>
+    <stackLimitForSameOtherPawn>5</stackLimitForSameOtherPawn>
+    <stackedEffectMultiplier>0.9</stackedEffectMultiplier>
+    <stages>
+      <li>
+        <label>rejected my offer of adoption</label>
+        <baseOpinionOffset>-1</baseOpinionOffset>
+      </li>
+    </stages>
+    <thoughtToMake>FRA_RejectedMyAdoptionProposalMood</thoughtToMake>
+  </ThoughtDef>
+
+  <ThoughtDef>
+    <defName>FRA_RejectedMyAdoptionProposalMood</defName>
+    <durationDays>2.0</durationDays>
+    <stackLimit>5</stackLimit>
+    <stackedEffectMultiplier>0.9</stackedEffectMultiplier>
+    <nullifyingHediffs>
+      <li MayRequire="Ludeon.RimWorld.Anomaly">Inhumanized</li>
+    </nullifyingHediffs>
+    <stages>
+      <li>
+        <label>{0} turned down my adoption offer</label>
+        <description>I offered to adopt {0}, but got declined. Maybe it's not meant to be.</description>
+        <baseMoodEffect>-4</baseMoodEffect>
+      </li>
+    </stages>
+  </ThoughtDef>
+
 </Defs>

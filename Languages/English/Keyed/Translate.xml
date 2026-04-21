@@ -2,7 +2,7 @@
 <LanguageData>
 
     <!-- Used in FRA_FloatMenuOptionProvider_Adopt.cs -->
-    <FRA_AdoptAsChild>Adopt {0} as child</FRA_AdoptAsChild>
+    <FRA_AdoptAsChild>Adopt {0} as child {1} \n{2}</FRA_AdoptAsChild>
     <FRA_CantAdoptAdult>Can't adopt an adult</FRA_CantAdoptAdult>
     <FRA_MustBeAdultToAdopt>Must be an adult to adopt a child</FRA_MustBeAdultToAdopt>
     <FRA_HasAdoptedAsChild>{0} has adopted {1} as {2} child!</FRA_HasAdoptedAsChild>
@@ -13,8 +13,20 @@
     <!-- Used in FRA_InteractionWorker_AdoptionProposal.cs -->
     <FRA_LetterLabelAdoption>Child adopted</FRA_LetterLabelAdoption>
     <FRA_LetterAdoption>{1} is now the adopted {2} of {0}.</FRA_LetterAdoption>
+    <FRA_AdoptionRejected>{1} rejected {0}'s offer of adoption</FRA_AdoptionRejected>
+    <FRA_AdoptionChance>Adoption chance</FRA_AdoptionChance>
+    <FRA_AdoptionChanceBase>Base chance</FRA_AdoptionChanceBase>
+    <FRA_AdoptionChanceOpinionFactor>Opinion</FRA_AdoptionChanceOpinionFactor>
+    <FRA_AdoptionChanceParentPartnerFactor>Parent relation</FRA_AdoptionChanceParentPartnerFactor>
+    <FRA_AdoptionChanceChildAgeFactor>Child age</FRA_AdoptionChanceChildAgeFactor>
 
     <!-- Used in FamilyRelationsAdoptions.cs -->
-    <FRA_XmlSettingsComingSoon>Coming soon probably! Let me know if you have any requests.</FRA_XmlSettingsComingSoon>
+    <FRA_ResetToDefaults>Reset to defaults</FRA_ResetToDefaults>
+    <FRA_BaseAdoptionSuccess>Base probability of adoption success</FRA_BaseAdoptionSuccess>
+    <FRA_BaseAdoptionSuccessTooltip>Base probability of an adoption proposal success. Turn it up for a higher chance of success and down for a lower chance.</FRA_BaseAdoptionSuccessTooltip>
+    <FRA_MinOpinionProposal>Minimum opinion threshold for adoption</FRA_MinOpinionProposal>
+    <FRA_MinOpinionProposalTooltip>The minimum opinion threshold for a pawn to be able to attempt to adopt a child</FRA_MinOpinionProposalTooltip>
+    <FRA_AutoSuccessProposal>Auto-success adoption proposal</FRA_AutoSuccessProposal>
+    <FRA_AutoSuccessProposalTooltip>Whether adoption proposals will always succeed</FRA_AutoSuccessProposalTooltip>
 
 </LanguageData>

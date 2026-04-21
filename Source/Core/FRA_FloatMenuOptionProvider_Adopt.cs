@@ -1,6 +1,7 @@
 using Verse; 
 using RimWorld;
 using Verse.AI;
+using System.Text;
 
 namespace FamilyRelationsAdoption
 {
@@ -30,7 +31,12 @@ namespace FamilyRelationsAdoption
                 return new FloatMenuOption("FRA_CantAdoptAdult".Translate(), null); 
             }
             
-            return new FloatMenuOption("FRA_AdoptAsChild".Translate(clickedPawn), () =>
+            float chance = FRA_InteractionWorker_AdoptionProposal.SuccessChance(context.FirstSelectedPawn, clickedPawn); 
+            string chanceStr = "(" + chance.ToStringPercent() + " chance)";
+            StringBuilder stringBuilder = new StringBuilder(); 
+            // stringBuilder.AppendLine(chanceStr); 
+            stringBuilder.AppendLine(FRA_InteractionWorker_AdoptionProposal.AdoptionFactors(context.FirstSelectedPawn, clickedPawn)); 
+            return new FloatMenuOption("FRA_AdoptAsChild".Translate(clickedPawn, chanceStr, stringBuilder.ToString()), () =>
             {
                 Job job = JobMaker.MakeJob(FRA_DefOf.FRA_AdoptJob, clickedPawn);
                 job.interaction = FRA_DefOf.FRA_AdoptionProposal; 
