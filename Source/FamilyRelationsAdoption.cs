@@ -1,6 +1,7 @@
 ﻿using UnityEngine; 
 using Verse; 
-using RimWorld; 
+using RimWorld;
+using HarmonyLib;
 
 namespace FamilyRelationsAdoption;
 
@@ -11,6 +12,8 @@ public class FamilyRelationsAdoptionMod : Mod
     public FamilyRelationsAdoptionMod(ModContentPack content) : base(content)
     {
         settings = GetSettings<FamilyRelationsAdoptionSettings>(); 
+        var harmony = new Harmony("Rycon.FamilyRelationsAdoption"); 
+        harmony.PatchAll(); 
     }
 
     public override void DoSettingsWindowContents(Rect inRect)

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using RimWorld;
 using Verse; 
@@ -29,6 +30,22 @@ namespace FamilyRelationsAdoption
             return adoptiveParents;
         }
 
+        public static List<Pawn> GetBioAndAdoptiveParents(this Pawn pawn)
+        {
+            List<Pawn> allParents = pawn.GetAdoptiveParents(); 
+            Pawn father = pawn.GetFather(); 
+            Pawn mother = pawn.GetMother(); 
+            if (father != null)
+            {
+                allParents.Add(father); 
+            }
+            if (mother != null)
+            {
+                allParents.Add(mother); 
+            }
+            return allParents; 
+        }
+
         public static void SetAdoptiveParent(this Pawn pawn, Pawn newParent)
         {
             if (newParent == null)
@@ -50,31 +67,11 @@ namespace FamilyRelationsAdoption
             {
                 return false;
             }
-            List<Pawn> pawnAdoptiveParents = pawn.GetAdoptiveParents(); 
-            List<Pawn> otherAdoptiveParents = other.GetAdoptiveParents(); 
-            if (pawnAdoptiveParents.Count > 0)
+            List<Pawn> pawnAllParents = pawn.GetBioAndAdoptiveParents(); 
+            List<Pawn> otherAllParents = other.GetBioAndAdoptiveParents(); 
+            if (pawnAllParents.Count > 0 && otherAllParents.Count > 0)
             {
-                if (otherAdoptiveParents.Count > 0)
-                {
-                    return pawnAdoptiveParents.SharesElementWith(otherAdoptiveParents); 
-                }
-                else
-                {
-                    if (pawnAdoptiveParents.Contains(other.GetFather()) || pawnAdoptiveParents.Contains(other.GetMother()))
-                    {
-                        return true; 
-                    }
-                }
-            }
-            else
-            {
-                if (otherAdoptiveParents.Count > 0)
-                {
-                    if (otherAdoptiveParents.Contains(pawn.GetFather()) || otherAdoptiveParents.Contains(pawn.GetMother()))
-                    {
-                        return true; 
-                    }
-                }
+                return pawnAllParents.SharesElementWith(otherAllParents);
             }
             return false; 
         }

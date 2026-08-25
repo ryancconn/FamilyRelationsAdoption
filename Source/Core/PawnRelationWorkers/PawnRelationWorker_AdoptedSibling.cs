@@ -12,7 +12,7 @@ namespace FamilyRelationsAdoption
             {
                 return false;
             }
-            return FRA_PawnRelationUtility.HasCommonParent(me, other); 
+            return FRA_PawnRelationUtility.HasCommonParent(me, other) && !PawnRelationDefOf.Sibling.Worker.InRelation(me, other); 
         }
 
         public override float GenerationChance(Pawn generated, Pawn other, PawnGenerationRequest request)

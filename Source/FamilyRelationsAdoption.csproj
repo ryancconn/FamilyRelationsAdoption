@@ -3,8 +3,8 @@
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
     <AssemblyName>FamilyRelationsAdoption</AssemblyName>
-    <Description>TBD description</Description>
-    <Version>1.0.1</Version>
+    <Description>This RimWorld mod adds adoptive relationships to the game.</Description>
+    <Version>1.2.0</Version>
     <Authors>Rycon</Authors>
     <OutputPath>../Assemblies</OutputPath>
     <LangVersion>latest</LangVersion>
@@ -12,7 +12,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.4633" />
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.*-*" />
+    <PackageReference Include="Lib.Harmony" Version="2.4.2" />
   </ItemGroup>
 
 </Project>

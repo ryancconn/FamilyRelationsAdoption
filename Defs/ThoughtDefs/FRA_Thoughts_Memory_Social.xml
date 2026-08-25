@@ -112,7 +112,7 @@
       <li>
         <label>I got adopted</label>
         <description>I got adopted! I feel like I really belong here.</description>  
-        <baseMoodEffect>10</baseMoodEffect>
+        <baseMoodEffect>8</baseMoodEffect>
       </li>
     </stages>
   </ThoughtDef>
@@ -126,7 +126,7 @@
       <li>
         <label>I adopted a child</label>
         <description>I adopted a child. My family has grown.</description>  
-        <baseMoodEffect>10</baseMoodEffect>
+        <baseMoodEffect>8</baseMoodEffect>
       </li>
     </stages>
   </ThoughtDef>

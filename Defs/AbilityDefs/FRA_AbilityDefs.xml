@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-  <AbilityDef ParentName="SpeechBase">
+  <AbilityDef ParentName="SpeechBase" MayRequire="Ludeon.RimWorld.Ideology">
     <defName>AdoptionRitual</defName>
     <label>adoption ritual</label>
     <description>Adopt someone as your child.</description>

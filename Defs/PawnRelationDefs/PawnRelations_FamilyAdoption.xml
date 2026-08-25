@@ -53,7 +53,7 @@
     <workerClass>FamilyRelationsAdoption.PawnRelationWorker_AdoptedSibling</workerClass>
     <defName>FRA_AdoptedSibling</defName>
     <label>adopted brother</label>
-    <labelFemale>adoptive sister</labelFemale>
+    <labelFemale>adopted sister</labelFemale>
     <importance>185</importance>
     <diedThought>FRA_MyAdoptedBrotherDied</diedThought>
     <diedThoughtFemale>FRA_MyAdoptedSisterDied</diedThoughtFemale>
