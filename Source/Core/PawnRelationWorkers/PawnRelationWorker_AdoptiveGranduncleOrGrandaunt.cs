@@ -1,6 +1,7 @@
 using Verse;
 using RimWorld;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace FamilyRelationsAdoption
 {
@@ -15,6 +16,10 @@ namespace FamilyRelationsAdoption
             if (PawnRelationDefOf.Grandparent.Worker.InRelation(me, other) || FRA_DefOf.FRA_AdoptiveGrandparent.Worker.InRelation(me, other))
             {
                 return false;
+            }
+            if (PawnRelationDefOf.GranduncleOrGrandaunt.Worker.InRelation(me, other))
+            {
+                return false; 
             }
 
             PawnRelationWorker workerGreatGrandparent = PawnRelationDefOf.GreatGrandparent.Worker; 

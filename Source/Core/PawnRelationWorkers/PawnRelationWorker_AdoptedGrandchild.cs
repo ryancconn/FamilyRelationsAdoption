@@ -12,6 +12,10 @@ namespace FamilyRelationsAdoption
             {
                 return false;
             }
+            if (PawnRelationDefOf.Grandchild.Worker.InRelation(me, other))
+            {
+                return false; 
+            }
 
             // Check if "other" is bio-child of "me"'s adopted child 
             PawnRelationWorker worker = FRA_DefOf.FRA_AdoptedChild.Worker; 
