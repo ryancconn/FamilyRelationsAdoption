@@ -16,6 +16,11 @@ namespace FamilyRelationsAdoption
             {
                 return false;
             }
+            if (PawnRelationDefOf.NephewOrNiece.Worker.InRelation(me, other))
+            {
+                return false; 
+            }
+
             // Check if "other" is adopted child of "me"'s bio-sibling, bio-half-sibling, or adopted sibling
             PawnRelationWorker workerSibling = PawnRelationDefOf.Sibling.Worker; 
             PawnRelationWorker workerHalfSibling = PawnRelationDefOf.HalfSibling.Worker; 

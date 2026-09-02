@@ -12,6 +12,10 @@ namespace FamilyRelationsAdoption
             {
                 return false;
             }
+            if (PawnRelationDefOf.GranduncleOrGrandaunt.Worker.InRelation(other, me))
+            {
+                return false; 
+            }
 
             PawnRelationWorker workerNephewOrNiece = PawnRelationDefOf.NephewOrNiece.Worker;
             PawnRelationWorker workerAdoptedNephewOrNiece = FRA_DefOf.FRA_AdoptedNephewOrNiece.Worker; 
