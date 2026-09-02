@@ -1,7 +1,5 @@
 using System.Collections.Generic;
-using System.Reflection;
 using System.Reflection.Emit;
-using System.Text;
 using HarmonyLib;
 using RimWorld;
 using Verse;
@@ -88,84 +86,9 @@ namespace FamilyRelationsAdoption
             }
         }
 
-        public static readonly FieldInfo pawnReflection = AccessTools.Field(typeof(Pawn_RelationsTracker), "pawn"); 
-
         [HarmonyPatch(typeof(Pawn_RelationsTracker), nameof(Pawn_RelationsTracker.OpinionOf))]
         public static class FRA_OpinionOf
         {
-            // static bool Prefix(ref int __result, Pawn_RelationsTracker __instance, Pawn other)
-            // {
-            //     Pawn pawn = (Pawn)pawnReflection.GetValue(__instance);
-            //     IEnumerable<PawnRelationDef> relations = pawn.GetRelations(other); 
-            //     bool adopted = false; 
-            //     foreach (PawnRelationDef relation in relations)
-            //     {
-            //         if (relation.defName.Contains("Adopt"))
-            //         {
-            //             adopted = true; 
-            //             break; 
-            //         }
-            //     }
-            //     if (adopted)
-            //     {
-            //         if (!other.RaceProps.Humanlike || pawn == other || pawn.Dead)
-            //         {
-            //             __result = 0; 
-            //             return false; 
-            //         }
-            //         Log.Message("pawn : " + pawn.Name + "; other : " + other.Name + "; relations : " + ListToString(relations));
-            //         int num = 0;
-            //         PawnRelationDef mostImportantCandidateRelation = null; 
-            //         List<PawnRelationDef> alwaysIncludeRelations = [PawnRelationDefOf.ParentBirth, PawnRelationDefOf.ExLover, PawnRelationDefOf.ExSpouse, PawnRelationDefOf.Fiance, PawnRelationDefOf.Lover, PawnRelationDefOf.Spouse];
-            //         foreach (PawnRelationDef relation in relations)
-            //         {
-            //             if (!alwaysIncludeRelations.Contains(relation))
-            //             {
-            //                 if (mostImportantCandidateRelation == null)
-            //                 {
-            //                     mostImportantCandidateRelation = relation; 
-            //                 }
-            //                 else
-            //                 {
-            //                     if (relation.importance > mostImportantCandidateRelation.importance)
-            //                     {
-            //                         mostImportantCandidateRelation = relation; 
-            //                     }
-            //                 }
-            //             }
-            //             else
-            //             {
-            //                 num += relation.opinionOffset; 
-            //             }
-            //         }
-            //         num += mostImportantCandidateRelation.opinionOffset; 
-            //         if (pawn.RaceProps.Humanlike && pawn.needs.mood != null)
-            //         {
-            //             num += pawn.needs.mood.thoughts.TotalOpinionOffset(other); 
-            //         }
-            //         if (num != 0)
-            //         {
-            //             float num2 = 1f; 
-            //             List<Hediff> hediffs = pawn.health.hediffSet.hediffs; 
-            //             for (int i = 0; i < hediffs.Count; i++)
-            //             {
-            //                 if (hediffs[i].CurStage != null)
-            //                 {
-            //                     num2 *= hediffs[i].CurStage.opinionOfOthersFactor; 
-            //                 }
-            //             }
-            //             num = Mathf.RoundToInt((float)num * num2); 
-            //         }
-            //         if (num > 0 && pawn.HostileTo(other))
-            //         {
-            //             num = 0; 
-            //         }
-            //         __result = Mathf.Clamp(num, -100, 100); 
-            //         return false; 
-            //     }
-            //     return true; 
-            // }
-        
             static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
             {
                 return TranspilerWrapper(instructions); 
@@ -180,15 +103,5 @@ namespace FamilyRelationsAdoption
                 return TranspilerWrapper(instructions); 
             }
         }
-
-        public static string ListToString(IEnumerable<PawnRelationDef> rels)
-            {
-                StringBuilder sb = new(); 
-                foreach (PawnRelationDef rel in rels)
-                {
-                    sb.Append(rel.defName + ", ");
-                }
-                return sb.ToString(); 
-            }
     }
 }
