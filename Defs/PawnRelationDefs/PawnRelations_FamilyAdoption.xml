@@ -21,7 +21,7 @@
     <opinionOffset>30</opinionOffset>
     <generationChanceFactor>0.05</generationChanceFactor>
     <romanceChanceFactor>0.04</romanceChanceFactor>
-    <incestOpinionOffset>-25</incestOpinionOffset>
+    <incestOpinionOffset>-28</incestOpinionOffset>
     <inbredChanceOnChild>0</inbredChanceOnChild>
     <implied>false</implied>
   </PawnRelationDef>
@@ -44,7 +44,7 @@
     <opinionOffset>30</opinionOffset>
     <generationChanceFactor>0.05</generationChanceFactor>
     <romanceChanceFactor>0.04</romanceChanceFactor>
-    <incestOpinionOffset>-25</incestOpinionOffset>
+    <incestOpinionOffset>-28</incestOpinionOffset>
     <inbredChanceOnChild>0</inbredChanceOnChild>
     <implied>true</implied>
   </PawnRelationDef>
@@ -268,6 +268,37 @@
     <opinionOffset>5</opinionOffset>
     <romanceChanceFactor>0.4</romanceChanceFactor>
     <implied>true</implied>
+  </PawnRelationDef>
+
+  <!-- donor parent/child -->
+  <!-- used as a flag to give adopted relations priority over the bio-parent relation -->
+
+  <PawnRelationDef>
+    <workerClass>FamilyRelationsAdoption.PawnRelationWorker_DonorParent</workerClass>
+    <defName>FRA_DonorParent</defName>
+    <label>donor father</label>
+    <labelFemale>donor mother</labelFemale>
+    <importance>200</importance>
+    <opinionOffset>5</opinionOffset>
+    <romanceChanceFactor>0.03</romanceChanceFactor>
+    <incestOpinionOffset>-30</incestOpinionOffset>
+    <inbredChanceOnChild>0.8</inbredChanceOnChild>
+    <implied>false</implied>
+    <familyByBloodRelation>true</familyByBloodRelation>
+  </PawnRelationDef>
+
+  <PawnRelationDef>
+    <workerClass>FamilyRelationsAdoption.PawnRelationWorker_DonorChild</workerClass>
+    <defName>FRA_DonorChild</defName>
+    <label>donor son</label>
+    <labelFemale>donor daughter</labelFemale>
+    <importance>195</importance>
+    <opinionOffset>5</opinionOffset>
+    <romanceChanceFactor>0.03</romanceChanceFactor>
+    <incestOpinionOffset>-30</incestOpinionOffset>
+    <inbredChanceOnChild>0.8</inbredChanceOnChild>
+    <implied>true</implied>
+    <familyByBloodRelation>true</familyByBloodRelation>
   </PawnRelationDef>
 
 </Defs>

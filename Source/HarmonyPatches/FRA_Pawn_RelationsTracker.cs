@@ -14,7 +14,7 @@ namespace FamilyRelationsAdoption
         {
             if (alwaysIncludeRelations.NullOrEmpty())
             {
-                alwaysIncludeRelations = [PawnRelationDefOf.ParentBirth, PawnRelationDefOf.ExLover, PawnRelationDefOf.ExSpouse, PawnRelationDefOf.Fiance, PawnRelationDefOf.Lover, PawnRelationDefOf.Spouse];
+                alwaysIncludeRelations = [FRA_DefOf.FRA_DonorChild, FRA_DefOf.FRA_DonorParent, PawnRelationDefOf.ParentBirth, PawnRelationDefOf.ExLover, PawnRelationDefOf.ExSpouse, PawnRelationDefOf.Fiance, PawnRelationDefOf.Lover, PawnRelationDefOf.Spouse];
             }
             return alwaysIncludeRelations.Contains(relation); 
         }
@@ -22,19 +22,30 @@ namespace FamilyRelationsAdoption
         public static IEnumerable<PawnRelationDef> RemoveExtraRelationsForOpinion(IEnumerable<PawnRelationDef> relations)
         {
             bool adopted = false; 
+            bool donor = false; 
             PawnRelationDef mostImportantCandidateRelation = null; 
             List<PawnRelationDef> relationsToUse = []; 
+            List<PawnRelationDef> relationsToConsider = []; 
             foreach (PawnRelationDef relation in relations)
             {
                 if (relation.defName.Contains("Adopt"))
                 {
                     adopted = true; 
-                    break; 
                 }
+                else if (relation.defName.Contains("Donor"))
+                {
+                    donor = true; 
+                }
+                relationsToConsider.Add(relation); 
+            }
+            if (donor)
+            {
+                relationsToConsider.Remove(PawnRelationDefOf.Child);
+                relationsToConsider.Remove(PawnRelationDefOf.Parent);
             }
             if (adopted)
             {
-                foreach (PawnRelationDef relation in relations)
+                foreach (PawnRelationDef relation in relationsToConsider)
                 {
                     if (ShouldAutoIncludeThisRelation(relation))
                     {
@@ -62,7 +73,7 @@ namespace FamilyRelationsAdoption
             }
             else
             {
-                return relations; 
+                return relationsToConsider; 
             }
             return relationsToUse; 
         }
@@ -74,7 +85,7 @@ namespace FamilyRelationsAdoption
             foreach (var i in instructions)
             {
                 yield return i; 
-                if (!done && i.opcode == OpCodes.Call && i.Calls(AccessTools.Method(typeof(PawnRelationUtility), nameof(PawnRelationUtility.GetRelations))))    // IL_00d0: call class [mscorlib]System.Collections.Generic.IEnumerable`1<class RimWorld.PawnRelationDef> RimWorld.PawnRelationUtility::GetRelations(class Verse.Pawn, class Verse.Pawn) /* 0600C8D1 */
+                if (!done && i.opcode == OpCodes.Call && i.Calls(AccessTools.Method(typeof(PawnRelationUtility), nameof(PawnRelationUtility.GetRelations))))
                 {
                     yield return new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(FRA_Pawn_RelationsTracker), nameof(FRA_Pawn_RelationsTracker.RemoveExtraRelationsForOpinion)));
                     done = true; 
