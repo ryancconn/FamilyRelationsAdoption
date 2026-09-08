@@ -12,7 +12,7 @@ namespace FamilyRelationsAdoption
             {
                 return false;
             }
-            if (PawnRelationDefOf.Cousin.Worker.InRelation(me, other))
+            if (PawnRelationDefOf.Cousin.Worker.InRelation(me, other) || FRA_DefOf.FRA_AdoptedSibling.Worker.InRelation(me, other))
             {
                 return false; 
             }
@@ -23,7 +23,7 @@ namespace FamilyRelationsAdoption
             {
                 return true;
             }
-
+            
             // Check if "other" is the adopted child of "me"'s bio-uncle or -aunt
             // or of "me"'s adoptive uncle or aunt 
             PawnRelationWorker workerUncleOrAunt = PawnRelationDefOf.UncleOrAunt.Worker; 

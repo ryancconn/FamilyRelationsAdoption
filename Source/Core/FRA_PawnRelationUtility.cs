@@ -1,7 +1,7 @@
-using System;
 using System.Collections.Generic;
+using System.Linq;
 using RimWorld;
-using Verse; 
+using Verse;
 
 namespace FamilyRelationsAdoption
 {
@@ -30,18 +30,38 @@ namespace FamilyRelationsAdoption
             return adoptiveParents;
         }
 
-        public static List<Pawn> GetBioAndAdoptiveParents(this Pawn pawn)
+        public static List<Pawn> GetBioAndAdoptiveParents(this Pawn pawn, bool includeDonorParents = true)
         {
             List<Pawn> allParents = pawn.GetAdoptiveParents(); 
             Pawn father = pawn.GetFather(); 
             Pawn mother = pawn.GetMother(); 
             if (father != null)
             {
-                allParents.Add(father); 
+                if (includeDonorParents)
+                {
+                    allParents.Add(father); 
+                }
+                else
+                {
+                    if (!FRA_DefOf.FRA_DonorChild.Worker.InRelation(father, pawn))
+                    {
+                        allParents.Add(father); 
+                    }
+                }
             }
             if (mother != null)
             {
-                allParents.Add(mother); 
+                if (includeDonorParents)
+                {
+                    allParents.Add(mother); 
+                }
+                else
+                {
+                    if (!FRA_DefOf.FRA_DonorChild.Worker.InRelation(mother, pawn))
+                    {
+                        allParents.Add(mother); 
+                    }
+                }
             }
             return allParents; 
         }
@@ -57,23 +77,25 @@ namespace FamilyRelationsAdoption
             pawn.relations.AddDirectRelation(FRA_DefOf.FRA_AdoptiveParent, newParent); 
         }
 
-        public static bool HasCommonParent(Pawn pawn, Pawn other)
+        public static IEnumerable<Pawn> GetCommonParents(this Pawn pawn, Pawn other, bool includeDonorParents = false)
         {
-            if (!pawn.RaceProps.IsFlesh)
-            {
-                return false;
-            }
-            if (pawn.relations == null)
-            {
-                return false;
-            }
-            List<Pawn> pawnAllParents = pawn.GetBioAndAdoptiveParents(); 
-            List<Pawn> otherAllParents = other.GetBioAndAdoptiveParents(); 
+            List<Pawn> pawnAllParents = pawn.GetBioAndAdoptiveParents(includeDonorParents); 
+            List<Pawn> otherAllParents = other.GetBioAndAdoptiveParents(includeDonorParents);
             if (pawnAllParents.Count > 0 && otherAllParents.Count > 0)
             {
-                return pawnAllParents.SharesElementWith(otherAllParents);
+                return pawnAllParents.Intersect(otherAllParents); 
             }
-            return false; 
+            return []; 
+        }
+
+        public static void SetDonorParent(this Pawn pawn, Pawn newParent)
+        {
+            if (newParent == null)
+            {
+                Log.Warning("Tried to set null pawn as " + pawn.ToString() + "'s donor parent.");
+                return;
+            }
+            pawn.relations.AddDirectRelation(FRA_DefOf.FRA_DonorParent, newParent); 
         }
     }
 }

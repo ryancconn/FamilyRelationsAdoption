@@ -1,6 +1,6 @@
-using UnityEngine;
 using Verse;
-using RimWorld; 
+using RimWorld;
+using System.Collections.Generic;
 
 namespace FamilyRelationsAdoption
 {
@@ -12,7 +12,30 @@ namespace FamilyRelationsAdoption
             {
                 return false;
             }
-            return FRA_PawnRelationUtility.HasCommonParent(me, other) && !PawnRelationDefOf.Sibling.Worker.InRelation(me, other); 
+            if (PawnRelationDefOf.Sibling.Worker.InRelation(me, other))
+            {
+                return false; 
+            }
+            List<Pawn> commonParents = [.. me.GetCommonParents(other)]; 
+            if (commonParents.Count == 0)
+            {
+                return false;
+            }
+            else 
+            {
+                if (PawnRelationDefOf.HalfSibling.Worker.InRelation(me, other))
+                {
+                    if (me.HasSameFather(other))
+                    {
+                        commonParents.Remove(me.GetFather()); 
+                    }
+                    else if (me.HasSameMother(other))
+                    {
+                        commonParents.Remove(me.GetMother()); 
+                    }
+                }
+                return commonParents.Count > 0; 
+            }
         }
 
         public override float GenerationChance(Pawn generated, Pawn other, PawnGenerationRequest request)

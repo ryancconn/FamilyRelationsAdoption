@@ -12,7 +12,7 @@ namespace FamilyRelationsAdoption
             {
                 return false;
             }
-            if (PawnRelationDefOf.Child.Worker.InRelation(me, other) || FRA_DefOf.FRA_AdoptedChild.Worker.InRelation(me, other))
+            if (FRA_DefOf.FRA_AdoptedChild.Worker.InRelation(me, other))
             {
                 return false;
             }

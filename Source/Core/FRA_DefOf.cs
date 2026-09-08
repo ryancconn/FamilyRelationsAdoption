@@ -36,6 +36,10 @@ namespace FamilyRelationsAdoption
 
         public static PawnRelationDef FRA_AdoptedKin; 
 
+        public static PawnRelationDef FRA_DonorParent; 
+
+        public static PawnRelationDef FRA_DonorChild; 
+
         public static JobDef FRA_AdoptJob; 
 
         public static InteractionDef FRA_AdoptionProposal; 
