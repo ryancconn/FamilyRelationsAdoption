@@ -3,9 +3,7 @@ using System.Text;
 using UnityEngine;
 using Verse;
 using RimWorld;
-using UnityEngine.AI;
-using System.Security.Cryptography.Pkcs;
-using System.Configuration;
+using System;
 
 namespace FamilyRelationsAdoption
 {
@@ -59,7 +57,10 @@ namespace FamilyRelationsAdoption
             {
                 return 0f; 
             }
-
+            if (recipient.ageTracker.AgeBiologicalYears < 3)
+            {
+                return 1f; 
+            }
             if (FamilyRelationsAdoptionMod.settings.autoSuccessAdoption)
             {
                 return 1f; 
@@ -77,7 +78,7 @@ namespace FamilyRelationsAdoption
             // The younger they are, the more likely to accept an adoption proposal 
             num *= ChildAgeFactor(recipient); 
 
-            return num; 
+            return Math.Clamp(num, 0f, 1f); 
         }
 
         private static float OpinionFactor(Pawn initiator, Pawn recipient)
