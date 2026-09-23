@@ -30,22 +30,22 @@ namespace FamilyRelationsAdoption
             return adoptiveParents;
         }
 
-        public static List<Pawn> GetBioAndAdoptiveParents(this Pawn pawn, bool includeDonorParents = true)
+        public static List<Pawn> GetBioParents(this Pawn pawn, bool includeDonorParents = true)
         {
-            List<Pawn> allParents = pawn.GetAdoptiveParents(); 
+            List<Pawn> bioParents = []; 
             Pawn father = pawn.GetFather(); 
             Pawn mother = pawn.GetMother(); 
             if (father != null)
             {
                 if (includeDonorParents)
                 {
-                    allParents.Add(father); 
+                    bioParents.Add(father); 
                 }
                 else
                 {
                     if (!FRA_DefOf.FRA_DonorChild.Worker.InRelation(father, pawn))
                     {
-                        allParents.Add(father); 
+                        bioParents.Add(father); 
                     }
                 }
             }
@@ -53,16 +53,23 @@ namespace FamilyRelationsAdoption
             {
                 if (includeDonorParents)
                 {
-                    allParents.Add(mother); 
+                    bioParents.Add(mother); 
                 }
                 else
                 {
                     if (!FRA_DefOf.FRA_DonorChild.Worker.InRelation(mother, pawn))
                     {
-                        allParents.Add(mother); 
+                        bioParents.Add(mother); 
                     }
                 }
             }
+            return bioParents; 
+        }
+
+        public static List<Pawn> GetBioAndAdoptiveParents(this Pawn pawn, bool includeDonorParents = true)
+        {
+            List<Pawn> allParents = pawn.GetAdoptiveParents(); 
+            allParents.AddRange(pawn.GetBioParents(includeDonorParents)); 
             return allParents; 
         }
 
