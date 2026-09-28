@@ -1,9 +1,7 @@
 using System.Collections.Generic;
-using System.Text;
-using UnityEngine;
 using Verse;
 using RimWorld;
-using HarmonyLib; 
+using HarmonyLib;
 
 namespace FamilyRelationsAdoption
 {
@@ -30,7 +28,7 @@ namespace FamilyRelationsAdoption
 
                         foreach (Pawn item in ownersForReading)
                         {
-                            if (item.DevelopmentalStage.Juvenile())
+                            if (item.DevelopmentalStage.Juvenile() || item.DevelopmentalStage.Newborn())
                             {
                                 childrenPatch.Add(item); 
                                 continue; 

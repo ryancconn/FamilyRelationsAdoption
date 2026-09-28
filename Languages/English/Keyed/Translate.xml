@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LanguageData>
 
+    <FRA_ModName>Family Relations: Adoption</FRA_ModName>
+
     <!-- Used in FRA_FloatMenuOptionProvider_Adopt.cs -->
     <FRA_AdoptAsChild>Adopt {0} as child {1} \n{2}</FRA_AdoptAsChild>
-    <FRA_CantAdoptAdult>Can't adopt an adult</FRA_CantAdoptAdult>
+    <FRA_CannotAdoptAdult>Cannot adopt an adult</FRA_CannotAdoptAdult>
     <FRA_MustBeAdultToAdopt>Must be an adult to adopt a child</FRA_MustBeAdultToAdopt>
+    <FRA_TooCloseInAgeToAdopt>Too close in age to adopt</FRA_TooCloseInAgeToAdopt>
+    <FRA_ChildAtMaxAdoptions>{0} already has the max amount ({1}) of adoptive parents</FRA_ChildAtMaxAdoptions>
     <FRA_HasAdoptedAsChild>{0} has adopted {1} as {2} child!</FRA_HasAdoptedAsChild>
+    <FRA_CannotAdoptCooldown>Cannot reattempt adoption for {0}</FRA_CannotAdoptCooldown>
 
     <!-- Used in FRA_JobDriver_Adopt.cs -->
     <FRA_AdoptionFailedUnexpected>{0} was unable to adopt {1}.</FRA_AdoptionFailedUnexpected>
@@ -22,11 +27,32 @@
 
     <!-- Used in FamilyRelationsAdoptions.cs -->
     <FRA_ResetToDefaults>Reset to defaults</FRA_ResetToDefaults>
-    <FRA_BaseAdoptionSuccess>Base probability of adoption success</FRA_BaseAdoptionSuccess>
-    <FRA_BaseAdoptionSuccessTooltip>Base probability of an adoption proposal success. Turn it up for a higher chance of success and down for a lower chance.</FRA_BaseAdoptionSuccessTooltip>
-    <FRA_MinOpinionProposal>Minimum opinion threshold for adoption</FRA_MinOpinionProposal>
-    <FRA_MinOpinionProposalTooltip>The minimum opinion threshold for a pawn to be able to attempt to adopt a child</FRA_MinOpinionProposalTooltip>
+
+    <FRA_GeneralSettings>General Settings</FRA_GeneralSettings>
     <FRA_AutoSuccessProposal>Auto-success adoption proposal</FRA_AutoSuccessProposal>
     <FRA_AutoSuccessProposalTooltip>Whether adoption proposals will always succeed</FRA_AutoSuccessProposalTooltip>
+    <FRA_MinOpinionProposal>Minimum opinion threshold for adoption</FRA_MinOpinionProposal>
+    <FRA_MinOpinionProposalTooltip>The minimum opinion threshold for a pawn to be able to attempt to adopt a child</FRA_MinOpinionProposalTooltip>
+    <FRA_BaseAdoptionSuccess>Base probability of adoption success</FRA_BaseAdoptionSuccess>
+    <FRA_BaseAdoptionSuccessTooltip>Base probability of an adoption proposal success. Turn it up for a higher chance of success and down for a lower chance.</FRA_BaseAdoptionSuccessTooltip>
+    <FRA_MinAgeDifferenceManual>Minimum age difference for manual adoption</FRA_MinAgeDifferenceManual>
+    <FRA_MinAgeDifferenceManualTooltip>Minimum age difference for adoptions done manually by the player, as opposed to a spontaneous adoption by a pawn's own volition. The adopter must be at least this many years older than the adoptee.\n\nNote: even if you set this to zero, the adopter still must be an adult and the adoptee still must be a child.</FRA_MinAgeDifferenceManualTooltip>
+    <FRA_MaxAdoptionsPerChild>Maximum adoptive parents per child</FRA_MaxAdoptionsPerChild>
+    <FRA_MaxAdoptionsPerChildTooltip>Maximum adoptive parents a child can have at a time. Dead adoptive parents do not count toward this.\n\nSlide all the way to the right to set to unlimited adoptions per child.\n\nNote: if spontaneous adoption is toggled on, pawns will not spontaneously propose adoption to a child who has two or more adoptive parents, regardless of this setting.</FRA_MaxAdoptionsPerChildTooltip>
+
+    <FRA_SpontaneousAdoptionSettings>Spontaneous Adoption Settings</FRA_SpontaneousAdoptionSettings>
+    <FRA_SpontaneousAdoptionSettingsTooltip>Settings concerning "spontaneous" adoption, meaning a naturally occurring adoption of a pawn's own volition. This has a chance to happen when an adult pawn and a child pawn have sufficiently high opinions of each other, and the child does not have any valid, non-donor, living parents (by default).</FRA_SpontaneousAdoptionSettingsTooltip>
+    <FRA_AllowSpontaneousAdoption>Allow naturally occurring adoption</FRA_AllowSpontaneousAdoption>
+    <FRA_AllowSpontaneousAdoptionTooltip>With this setting toggled on, pawns will occassionally attempt adoption unprompted by the player if their approval levels are high enough.</FRA_AllowSpontaneousAdoptionTooltip>
+    <FRA_AllowSpontaneousAdoptionForChildWithNonHostileParents>Allow for children with parents in non-hostile faction</FRA_AllowSpontaneousAdoptionForChildWithNonHostileParents>
+    <FRA_AllowSpontaneousAdoptionForChildWithNonHostileParentsTooltip>Allows spontaneous adoption to be proposed to children with living, non-donor parents who are in a non-player, non-hostile faction.\n\nWith this toggled on, any living, non-donor parents not in the player faction will be considered dead or invalid when considering the validity of a spontaneous adoption proposal on this child.\n\nWith this toggled off, only a child's living parents in a hostile faction will be treated as dead/invalid. If they have living parents in a neutral or friendly faction, they will not be considered for adoption.</FRA_AllowSpontaneousAdoptionForChildWithNonHostileParentsTooltip>
+    <FRA_BaseSelectionWeight>Base selection weight for spontaneous proposals</FRA_BaseSelectionWeight>
+    <FRA_BaseSelectionWeightTooltip>Base selection weight for spontaneous, unprompted adoption proposals. Turn it up for a higher chance of them occurring naturally and down for a lower chance.\n\nThe default is 1.1. Setting this to 0 means that no unprompted adoptions will occur.</FRA_BaseSelectionWeightTooltip>
+    <FRA_MinAgeDifferenceSpontaneous>Minimum age difference for spontaneous adoption</FRA_MinAgeDifferenceSpontaneous>
+    <FRA_MinAgeDifferenceSpontaneousTooltip>Minimum age difference for spontaneous adoptions. The adopter must be at least this many years older than the adoptee for a spontaneous adopted to occur.\n\nNote: even if you set this to zero, the adopter still must be an adult and the adoptee still must be a child.</FRA_MinAgeDifferenceSpontaneousTooltip>
+    <FRA_AllowSpontaneousAdoptionFamilyByBlood>Allow spontaneous adoption of bio-related pawns</FRA_AllowSpontaneousAdoptionFamilyByBlood>
+    <FRA_AllowSpontaneousAdoptionFamilyByBloodTooltip>With this setting toggled on, an adult pawn will consider child pawns who are biologically related to them for spontaneous adoption if they meet other criteria. This other criteria requires the child's parents to be dead or in a hostile faction and for the adult and child's age difference to meet the minimum. (These can be affected by other settings.)\n\nThe player can still order manual adoption proposals done despite this setting.</FRA_AllowSpontaneousAdoptionFamilyByBloodTooltip>
+    <FRA_SpontaneousAdoptionMaxAgeFamilyByBlood>Maximum child age if bio-related</FRA_SpontaneousAdoptionMaxAgeFamilyByBlood>
+    <FRA_SpontaneousAdoptionMaxAgeFamilyByBloodTooltip>Children at this age or older will not be considered for spontaneous adoption by adults who are biologically related to them.\n\nThe player can still order manual adoption proposals done despite this setting.</FRA_SpontaneousAdoptionMaxAgeFamilyByBloodTooltip>
 
 </LanguageData>

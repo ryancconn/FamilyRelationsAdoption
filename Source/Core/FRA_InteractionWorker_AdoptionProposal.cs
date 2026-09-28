@@ -11,36 +11,148 @@ namespace FamilyRelationsAdoption
     {
         private const float MinAdoptionChanceForAttempt = 0.6f; 
 
-
-        private const float BaseSelectionWeight = 0.8f; 
-
+        private const float BaseSelectionWeight = 1.1f; 
 
         private const int TryAdoptionCooldownTicks = 900000; 
 
         public override float RandomSelectionWeight(Pawn initiator, Pawn recipient)
         {
-            if (!initiator.DevelopmentalStage.Adult() || recipient.DevelopmentalStage.Adult())
+            if (!AllowSpontaneousAdoptionProposal(initiator, recipient))
             {
                 return 0f; 
             }
+
+            float num = FamilyRelationsAdoptionMod.settings.baseSelectionWeight; 
+
+            num *= OpinionFactor(initiator, recipient); 
+            num *= OpinionFactor(recipient, initiator); 
+
+            num *= ParentPartnerFactor(initiator, recipient); 
+
+            num *= ChildAgeFactor(recipient); 
+
+            return num; 
+        }
+
+        private static bool AllowSpontaneousAdoptionProposal(Pawn initiator, Pawn recipient)
+        {
+            if (!FamilyRelationsAdoptionMod.settings.allowSpontaneousAdoption)
+            {
+                return false; 
+            }
+            if (TutorSystem.TutorialMode)
+            {
+                return false;
+            }
+            if (initiator.Inhumanized())
+            {
+                return false;
+            }
+            if (recipient.GetAdoptiveParents(false).Count >= FamilyRelationsAdoptionMod.settings.maxAdoptionsPerChild && FamilyRelationsAdoptionMod.settings.maxAdoptionsPerChild < 10)
+            {
+                return false; 
+            }
+            if (!FRA_GeneralUtility.IsAdult(initiator) || FRA_GeneralUtility.IsAdult(recipient))
+            {
+                return false; 
+            }
+            if (recipient.GetBioAndAdoptiveParents().Contains(initiator))
+            {
+                return false; 
+            }
+            if (initiator.ageTracker.AgeBiologicalYears - recipient.ageTracker.AgeBiologicalYears < FamilyRelationsAdoptionMod.settings.minAgeDifferenceSpontaneous)
+            {
+                return false; 
+            }
+
+            // does this child have alive, non-absent, non-donor parents already? 
+            // alive? 
+            // in our faction? 
+            int validBioParents = 0; 
+            List<Pawn> bioParents = recipient.GetBioParents(false); 
+            foreach (Pawn bioParent in bioParents)
+            {
+                if (!bioParent.Dead)
+                {
+                    if (bioParent.Faction == Faction.OfPlayer)
+                    {
+                        validBioParents++; 
+                    }
+                    else if (!FamilyRelationsAdoptionMod.settings.allowSpontaneousAdoptionForChildWithNonHostileParents) 
+                    {
+                        if (!bioParent.Faction.HostileTo(Faction.OfPlayer))
+                        {
+                            validBioParents++; 
+                        }
+                    }
+                }
+            }
+            // child has a two-parent household already. sorry. 
+            // or they have two divorced parents who are still alive. be happy with being a stepparent. 
+            if (validBioParents == 2)
+            {
+                return false; 
+            }
+            // is initiator a lover of the one parent?
+            else if (validBioParents == 1)
+            {
+                if (!bioParents[0].GetLoveCluster().Contains(initiator))
+                {
+                    return false; 
+                }
+            }
+            // child has no non-donor parents either alive or in this colony 
+            else // validParents == 0
+            {
+                // if initiator and recipient are bio-related, only return true if it fits the user settings criteria 
+                foreach (PawnRelationDef relation in initiator.GetRelations(recipient))
+                {
+                    if (relation.familyByBloodRelation)
+                    {
+                        return FamilyRelationsAdoptionMod.settings.allowSpontaneousAdoptionForFamilyByBlood && recipient.ageTracker.AgeBiologicalYears <= FamilyRelationsAdoptionMod.settings.maxAgeForSpontaneousFamilyByBloodAdoption;
+                    }
+                }
+            }
+
+            List<Pawn> adoptiveParents = recipient.GetAdoptiveParents(); 
+            if (adoptiveParents.Count >= 2)
+            {
+                return false; 
+            }
+            if (adoptiveParents.Count == 1)
+            {
+                if (!adoptiveParents[0].GetLoveCluster().Contains(initiator))
+                {
+                    return false; 
+                }
+            }
+
+            foreach (Thought_Memory thought in initiator.needs.mood?.thoughts.memories.Memories.FindAll(t => t.def == FRA_DefOf.FRA_RejectedMyAdoptionProposal))
+            {
+                if (((Thought_MemorySocial)thought).OtherPawn() == recipient)
+                {
+                    return false; 
+                }
+            }
             
-            float num = BaseSelectionWeight; 
+            if (!MeetsOpinionThreshold(initiator, recipient))
+            {
+                return false; 
+            }
+
+            return true; 
+        }
+
+        private static bool MeetsOpinionThreshold(Pawn initiator, Pawn recipient)
+        {
             float initOpinionOfRec = initiator.relations.OpinionOf(recipient); 
             float recOpinionOfInit = recipient.relations.OpinionOf(initiator); 
 
-            if (initOpinionOfRec < 10f && recOpinionOfInit < 10f)
+            if (initOpinionOfRec < FamilyRelationsAdoptionMod.settings.minOpinionForAdoptionProposal && recOpinionOfInit < FamilyRelationsAdoptionMod.settings.minOpinionForAdoptionProposal)
             {
-                return 0f; 
+                return false; 
             }
-
-            num *= Mathf.InverseLerp(0f, 50f, initOpinionOfRec); 
-            num *= Mathf.InverseLerp(0f, 50f, recOpinionOfInit); 
-
-            // Make higher if child already has a parent (bio or adopted) that the initiator is 
-            // the spouse of 
-
-            // return num; 
-            return 0f; 
+            return true; 
         }
 
         public static float SuccessChance(Pawn initiator, Pawn recipient)
@@ -49,19 +161,15 @@ namespace FamilyRelationsAdoption
             {
                 return 0f;
             }
-            // if (!initiator.DevelopmentalStage.Adult() || recipient.DevelopmentalStage.Adult())
-            // {
-            //     return 0f; 
-            // }
-            if (initiator.ageTracker.AgeBiologicalYears < 18 || recipient.ageTracker.AgeBiologicalYears >= 18)
+            if (!FRA_GeneralUtility.IsAdult(initiator) || FRA_GeneralUtility.IsAdult(recipient))
             {
                 return 0f; 
             }
-            if (recipient.ageTracker.AgeBiologicalYears < 3)
+            if (recipient.DevelopmentalStage.Newborn() || recipient.DevelopmentalStage.Baby())
             {
                 return 1f; 
             }
-            if (FamilyRelationsAdoptionMod.settings.autoSuccessAdoption)
+            if (FamilyRelationsAdoptionMod.settings.allowAutoSuccessAdoption)
             {
                 return 1f; 
             }
@@ -84,8 +192,7 @@ namespace FamilyRelationsAdoption
         private static float OpinionFactor(Pawn initiator, Pawn recipient)
         {
             float recOpinionOfInit = recipient.relations.OpinionOf(initiator); 
-            // return Mathf.Clamp(Mathf.InverseLerp((float) MinOpinionForAdoptionProposal, 100f, recOpinionOfInit), 0.2f, 1f);  
-            if (recipient.ageTracker.AgeBiologicalYears < 3)
+            if (recipient.DevelopmentalStage.Newborn() || recipient.DevelopmentalStage.Baby())
             {   // babies don't get a decision. 
                 return 1f; 
             }
@@ -98,35 +205,49 @@ namespace FamilyRelationsAdoption
 
         private static float ParentPartnerFactor(Pawn initiator, Pawn recipient)
         {
-            // TODO: give more weight to spouses of existing parents over lovers of them 
-            // TODO: make dead spouses/lovers count for something but not as much 
-            if (recipient.GetFather() != null)
+            foreach (Pawn bioParent in recipient.GetBioParents(false))
             {
-                foreach (DirectPawnRelation dpr in recipient.GetFather().GetLoveRelations(false))
+                foreach (DirectPawnRelation dpr in bioParent.GetLoveRelations(false))
                 {
                     if (dpr.otherPawn == initiator)
                     {
-                        return 2f; 
+                        float factor = 1.25f; 
+                        if (dpr.def == PawnRelationDefOf.Spouse)
+                        {
+                            factor = 2f; 
+                        }
+                        if (dpr.def == PawnRelationDefOf.Fiance)
+                        {
+                            factor = 1.5f; 
+                        }
+                        if (bioParent.Dead)
+                        {
+                            factor *= 0.875f; 
+                        }
+                        return factor; 
                     }
                 }
-            } 
-            if (recipient.GetMother() != null)
-            {
-                foreach (DirectPawnRelation dpr in recipient.GetMother().GetLoveRelations(false))
-                {
-                    if (dpr.otherPawn == initiator)
-                    {
-                        return 2f; 
-                    }
-                }
-            } 
+            }
             foreach (Pawn adoptiveParent in recipient.GetAdoptiveParents())
             {
                 foreach (DirectPawnRelation dpr in adoptiveParent.GetLoveRelations(false))
                 {
                     if (dpr.otherPawn == initiator)
                     {
-                        return 1.9f; 
+                        float factor = 1.2f; 
+                        if (dpr.def == PawnRelationDefOf.Spouse)
+                        {
+                            factor = 1.95f; 
+                        }
+                        if (dpr.def == PawnRelationDefOf.Fiance)
+                        {
+                            factor = 1.45f; 
+                        }
+                        if (adoptiveParent.Dead)
+                        {
+                            factor *= 0.875f; 
+                        }
+                        return factor; 
                     }
                 }
             }
@@ -134,8 +255,8 @@ namespace FamilyRelationsAdoption
         }
 
         private static float ChildAgeFactor(Pawn recipient)
-        {
-            if (recipient.ageTracker.AgeBiologicalYears < 3)
+        {            
+            if (recipient.DevelopmentalStage.Newborn() || recipient.DevelopmentalStage.Baby())
             {
                 return 1f; 
             }
@@ -144,12 +265,12 @@ namespace FamilyRelationsAdoption
 
         public static string AdoptionFactors(Pawn adopter, Pawn adoptee)
         {
-            StringBuilder stringBuilder = new StringBuilder(); 
+            StringBuilder stringBuilder = new(); 
             if (FamilyRelationsAdoptionMod.settings.baseAdoptionSuccessChance != 1f)
             {
                 stringBuilder.AppendLine(AdoptionFactorLine("FRA_AdoptionChanceBase".Translate(), FamilyRelationsAdoptionMod.settings.baseAdoptionSuccessChance));
             }
-            if (adoptee.ageTracker.AgeBiologicalYears >= 3)
+            if (!(adoptee.DevelopmentalStage.Newborn() || adoptee.DevelopmentalStage.Baby()))
             {
                 stringBuilder.AppendLine(AdoptionFactorLine("FRA_AdoptionChanceOpinionFactor".Translate(), OpinionFactor(adopter, adoptee))); 
                 stringBuilder.AppendLine(AdoptionFactorLine("FRA_AdoptionChanceChildAgeFactor".Translate(), ChildAgeFactor(adoptee))); 

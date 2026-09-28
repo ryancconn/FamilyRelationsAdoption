@@ -1,4 +1,4 @@
-using Verse; 
+using Verse;
 using RimWorld;
 using Verse.AI;
 using System.Text;
@@ -22,19 +22,34 @@ namespace FamilyRelationsAdoption
                 return null; 
             }
 
-            if (context.FirstSelectedPawn.ageTracker.AgeBiologicalYears < 18)
+            if (!FRA_GeneralUtility.IsAdult(context.FirstSelectedPawn))
             {
                 return new FloatMenuOption("FRA_MustBeAdultToAdopt".Translate(), null);
             }
-            if (clickedPawn.ageTracker.AgeBiologicalYears > 18)
+            if (FRA_GeneralUtility.IsAdult(clickedPawn))
             {
-                return new FloatMenuOption("FRA_CantAdoptAdult".Translate(), null); 
+                return new FloatMenuOption("FRA_CannotAdoptAdult".Translate(), null); 
+            }
+            if (context.FirstSelectedPawn.ageTracker.AgeBiologicalYears - clickedPawn.ageTracker.AgeBiologicalYears < FamilyRelationsAdoptionMod.settings.minAgeDifferenceManual)
+            {
+                return new FloatMenuOption("FRA_TooCloseInAgeToAdopt".Translate(), null); 
+            }
+            if (clickedPawn.GetAdoptiveParents(false).Count >= FamilyRelationsAdoptionMod.settings.maxAdoptionsPerChild && FamilyRelationsAdoptionMod.settings.maxAdoptionsPerChild < 10)
+            {
+                return new FloatMenuOption("FRA_ChildAtMaxAdoptions".Translate(clickedPawn.Name.ToStringShort, FamilyRelationsAdoptionMod.settings.maxAdoptionsPerChild), null); 
+            }
+
+            foreach (Thought_Memory thought in context.FirstSelectedPawn.needs.mood?.thoughts.memories.Memories.FindAll(t => t.def == FRA_DefOf.FRA_RejectedMyAdoptionProposal))
+            {
+                if (((Thought_MemorySocial)thought).OtherPawn() == clickedPawn)
+                {
+                    return new FloatMenuOption("FRA_CannotAdoptCooldown".Translate(GenDate.ToStringTicksToPeriod(thought.DurationTicks - thought.age)), null); 
+                }
             }
             
             float chance = FRA_InteractionWorker_AdoptionProposal.SuccessChance(context.FirstSelectedPawn, clickedPawn); 
             string chanceStr = "(" + chance.ToStringPercent() + " chance)";
-            StringBuilder stringBuilder = new StringBuilder(); 
-            // stringBuilder.AppendLine(chanceStr); 
+            StringBuilder stringBuilder = new(); 
             stringBuilder.AppendLine(FRA_InteractionWorker_AdoptionProposal.AdoptionFactors(context.FirstSelectedPawn, clickedPawn)); 
             return new FloatMenuOption("FRA_AdoptAsChild".Translate(clickedPawn, chanceStr, stringBuilder.ToString()), () =>
             {
