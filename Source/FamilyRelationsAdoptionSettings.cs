@@ -1,6 +1,4 @@
-using Verse; 
-using RimWorld;
-using Steamworks;
+using Verse;
 
 namespace FamilyRelationsAdoption
 {
@@ -30,7 +28,7 @@ namespace FamilyRelationsAdoption
             Scribe_Values.Look(ref baseAdoptionSuccessChance, "baseAdoptionSuccessChance", baseAdoptionSuccessChance, true); 
             Scribe_Values.Look(ref minAgeDifferenceManual, "minAgeDifferenceManual", minAgeDifferenceManual, true);
             Scribe_Values.Look(ref maxAdoptionsPerChild, "maxAdoptionsPerChild", maxAdoptionsPerChild, true); 
-            
+
             Scribe_Values.Look(ref allowSpontaneousAdoption, "allowSpontaneousAdoption", allowSpontaneousAdoption, true);
             Scribe_Values.Look(ref allowSpontaneousAdoptionForChildWithNonHostileParents, "allowSpontaneousAdoptionForChildWithNonHostileParents", allowSpontaneousAdoptionForChildWithNonHostileParents, true); 
             Scribe_Values.Look(ref baseSelectionWeight, "baseSelectionWeight", baseSelectionWeight, true); 

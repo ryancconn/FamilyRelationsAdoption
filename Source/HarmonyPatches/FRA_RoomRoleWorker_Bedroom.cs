@@ -1,9 +1,7 @@
 using System.Collections.Generic;
-using System.Text;
-using UnityEngine;
 using Verse;
 using RimWorld;
-using HarmonyLib; 
+using HarmonyLib;
 
 namespace FamilyRelationsAdoption
 {
