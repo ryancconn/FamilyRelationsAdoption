@@ -103,6 +103,14 @@ public class FamilyRelationsAdoptionMod : Mod
 
         generalRow3_Section.Begin(generalRow3_Rect); 
         generalRow3_Section.ColumnWidth = (generalRow3_Rect.width - 17f) / 2f; 
+
+        generalRow3_Section.Label(
+            "FRA_MaxAdoptionsPerChild".Translate() + ": " + (settings.maxAdoptionsPerChild < 10 ? settings.maxAdoptionsPerChild : "Unlimited".TranslateSimple()), 
+            -1f,
+            new TipSignal("FRA_MaxAdoptionsPerChildTooltip".Translate())
+        );
+        settings.maxAdoptionsPerChild = (int)generalRow3_Section.Slider(settings.maxAdoptionsPerChild, 1, 10); 
+
         generalRow3_Section.NewColumn(); 
 
         if (generalRow3_Section.ButtonText("FRA_ResetToDefaults".Translate()))
@@ -111,6 +119,7 @@ public class FamilyRelationsAdoptionMod : Mod
             settings.minOpinionForAdoptionProposal = 15; 
             settings.baseAdoptionSuccessChance = 1f;  
             settings.minAgeDifferenceManual = 15;             
+            settings.maxAdoptionsPerChild = 2; 
         }
 
         listingStandard.EndSection(generalRow3_Section); 

@@ -4,7 +4,7 @@
     <TargetFramework>net472</TargetFramework>
     <AssemblyName>FamilyRelationsAdoption</AssemblyName>
     <Description>This RimWorld mod adds adoptive relationships to the game.</Description>
-    <Version>1.2.4</Version>
+    <Version>1.3.0</Version>
     <Authors>Rycon</Authors>
     <OutputPath>../Assemblies</OutputPath>
     <LangVersion>latest</LangVersion>

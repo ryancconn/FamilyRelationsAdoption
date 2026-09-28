@@ -49,7 +49,11 @@ namespace FamilyRelationsAdoption
             {
                 return false;
             }
-            if (!initiator.DevelopmentalStage.Adult() || recipient.DevelopmentalStage.Adult())
+            if (recipient.GetAdoptiveParents(false).Count >= FamilyRelationsAdoptionMod.settings.maxAdoptionsPerChild && FamilyRelationsAdoptionMod.settings.maxAdoptionsPerChild < 10)
+            {
+                return false; 
+            }
+            if (!FRA_GeneralUtility.IsAdult(initiator) || FRA_GeneralUtility.IsAdult(recipient))
             {
                 return false; 
             }
@@ -112,7 +116,7 @@ namespace FamilyRelationsAdoption
             }
 
             List<Pawn> adoptiveParents = recipient.GetAdoptiveParents(); 
-            if (adoptiveParents.Count == 2)
+            if (adoptiveParents.Count >= 2)
             {
                 return false; 
             }
@@ -158,15 +162,11 @@ namespace FamilyRelationsAdoption
             {
                 return 0f;
             }
-            // if (!initiator.DevelopmentalStage.Adult() || recipient.DevelopmentalStage.Adult())
-            // {
-            //     return 0f; 
-            // }
-            if (initiator.ageTracker.AgeBiologicalYears < 18 || recipient.ageTracker.AgeBiologicalYears >= 18)
+            if (!FRA_GeneralUtility.IsAdult(initiator) || FRA_GeneralUtility.IsAdult(recipient))
             {
                 return 0f; 
             }
-            if (recipient.ageTracker.AgeBiologicalYears < 3)
+            if (recipient.DevelopmentalStage.Newborn() || recipient.DevelopmentalStage.Baby())
             {
                 return 1f; 
             }
@@ -193,7 +193,7 @@ namespace FamilyRelationsAdoption
         private static float OpinionFactor(Pawn initiator, Pawn recipient)
         {
             float recOpinionOfInit = recipient.relations.OpinionOf(initiator); 
-            if (recipient.ageTracker.AgeBiologicalYears < 3)
+            if (recipient.DevelopmentalStage.Newborn() || recipient.DevelopmentalStage.Baby())
             {   // babies don't get a decision. 
                 return 1f; 
             }
@@ -256,8 +256,8 @@ namespace FamilyRelationsAdoption
         }
 
         private static float ChildAgeFactor(Pawn recipient)
-        {
-            if (recipient.ageTracker.AgeBiologicalYears < 3)
+        {            
+            if (recipient.DevelopmentalStage.Newborn() || recipient.DevelopmentalStage.Baby())
             {
                 return 1f; 
             }
@@ -271,7 +271,7 @@ namespace FamilyRelationsAdoption
             {
                 stringBuilder.AppendLine(AdoptionFactorLine("FRA_AdoptionChanceBase".Translate(), FamilyRelationsAdoptionMod.settings.baseAdoptionSuccessChance));
             }
-            if (adoptee.ageTracker.AgeBiologicalYears >= 3)
+            if (!(adoptee.DevelopmentalStage.Newborn() || adoptee.DevelopmentalStage.Baby()))
             {
                 stringBuilder.AppendLine(AdoptionFactorLine("FRA_AdoptionChanceOpinionFactor".Translate(), OpinionFactor(adopter, adoptee))); 
                 stringBuilder.AppendLine(AdoptionFactorLine("FRA_AdoptionChanceChildAgeFactor".Translate(), ChildAgeFactor(adoptee))); 

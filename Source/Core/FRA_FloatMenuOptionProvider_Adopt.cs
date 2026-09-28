@@ -1,4 +1,4 @@
-using Verse; 
+using Verse;
 using RimWorld;
 using Verse.AI;
 using System.Text;
@@ -22,17 +22,21 @@ namespace FamilyRelationsAdoption
                 return null; 
             }
 
-            if (context.FirstSelectedPawn.ageTracker.AgeBiologicalYears < 18)
+            if (!FRA_GeneralUtility.IsAdult(context.FirstSelectedPawn))
             {
                 return new FloatMenuOption("FRA_MustBeAdultToAdopt".Translate(), null);
             }
-            if (clickedPawn.ageTracker.AgeBiologicalYears > 18)
+            if (FRA_GeneralUtility.IsAdult(clickedPawn))
             {
                 return new FloatMenuOption("FRA_CannotAdoptAdult".Translate(), null); 
             }
             if (context.FirstSelectedPawn.ageTracker.AgeBiologicalYears - clickedPawn.ageTracker.AgeBiologicalYears < FamilyRelationsAdoptionMod.settings.minAgeDifferenceManual)
             {
                 return new FloatMenuOption("FRA_TooCloseInAgeToAdopt".Translate(), null); 
+            }
+            if (clickedPawn.GetAdoptiveParents(false).Count >= FamilyRelationsAdoptionMod.settings.maxAdoptionsPerChild && FamilyRelationsAdoptionMod.settings.maxAdoptionsPerChild < 10)
+            {
+                return new FloatMenuOption("FRA_ChildAtMaxAdoptions".Translate(clickedPawn.Name.ToStringShort, FamilyRelationsAdoptionMod.settings.maxAdoptionsPerChild), null); 
             }
 
             foreach (Thought_Memory thought in context.FirstSelectedPawn.needs.mood?.thoughts.memories.Memories.FindAll(t => t.def == FRA_DefOf.FRA_RejectedMyAdoptionProposal))

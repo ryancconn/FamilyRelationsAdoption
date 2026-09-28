@@ -8,6 +8,7 @@
     <FRA_CannotAdoptAdult>Cannot adopt an adult</FRA_CannotAdoptAdult>
     <FRA_MustBeAdultToAdopt>Must be an adult to adopt a child</FRA_MustBeAdultToAdopt>
     <FRA_TooCloseInAgeToAdopt>Too close in age to adopt</FRA_TooCloseInAgeToAdopt>
+    <FRA_ChildAtMaxAdoptions>{0} already has the max amount ({1}) of adoptive parents</FRA_ChildAtMaxAdoptions>
     <FRA_HasAdoptedAsChild>{0} has adopted {1} as {2} child!</FRA_HasAdoptedAsChild>
     <FRA_CannotAdoptCooldown>Cannot reattempt adoption for {0}</FRA_CannotAdoptCooldown>
 
@@ -36,6 +37,8 @@
     <FRA_BaseAdoptionSuccessTooltip>Base probability of an adoption proposal success. Turn it up for a higher chance of success and down for a lower chance.</FRA_BaseAdoptionSuccessTooltip>
     <FRA_MinAgeDifferenceManual>Minimum age difference for manual adoption</FRA_MinAgeDifferenceManual>
     <FRA_MinAgeDifferenceManualTooltip>Minimum age difference for adoptions done manually by the player, as opposed to a spontaneous adoption by a pawn's own volition. The adopter must be at least this many years older than the adoptee.\n\nNote: even if you set this to zero, the adopter still must be an adult and the adoptee still must be a child.</FRA_MinAgeDifferenceManualTooltip>
+    <FRA_MaxAdoptionsPerChild>Maximum adoptive parents per child</FRA_MaxAdoptionsPerChild>
+    <FRA_MaxAdoptionsPerChildTooltip>Maximum adoptive parents a child can have at a time. Dead adoptive parents do not count toward this.\n\nSlide all the way to the right to set to unlimited adoptions per child.\n\nNote: if spontaneous adoption is toggled on, pawns will not spontaneously propose adoption to a child who has two or more adoptive parents, regardless of this setting.</FRA_MaxAdoptionsPerChildTooltip>
 
     <FRA_SpontaneousAdoptionSettings>Spontaneous Adoption Settings</FRA_SpontaneousAdoptionSettings>
     <FRA_SpontaneousAdoptionSettingsTooltip>Settings concerning "spontaneous" adoption, meaning a naturally occurring adoption of a pawn's own volition. This has a chance to happen when an adult pawn and a child pawn have sufficiently high opinions of each other, and the child does not have any valid, non-donor, living parents (by default).</FRA_SpontaneousAdoptionSettingsTooltip>

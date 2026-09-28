@@ -30,7 +30,7 @@ namespace FamilyRelationsAdoption
 
                         foreach (Pawn item in ownersForReading)
                         {
-                            if (item.DevelopmentalStage.Juvenile())
+                            if (item.DevelopmentalStage.Juvenile() || item.DevelopmentalStage.Newborn())
                             {
                                 childrenPatch.Add(item); 
                                 continue; 

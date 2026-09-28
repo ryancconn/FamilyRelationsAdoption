@@ -7,7 +7,7 @@ namespace FamilyRelationsAdoption
 {
     public static class FRA_PawnRelationUtility
     {
-        public static List<Pawn> GetAdoptiveParents(this Pawn pawn)
+        public static List<Pawn> GetAdoptiveParents(this Pawn pawn, bool includeDead = true)
         {
             if (!pawn.RaceProps.IsFlesh)
             {
@@ -24,7 +24,14 @@ namespace FamilyRelationsAdoption
                 DirectPawnRelation directPawnRelation = directRelations[i]; 
                 if (directPawnRelation.def == FRA_DefOf.FRA_AdoptiveParent)
                 {
-                    adoptiveParents.Add(directPawnRelation.otherPawn);                     
+                    if (!includeDead && !directPawnRelation.otherPawn.Dead)
+                    {
+                        adoptiveParents.Add(directPawnRelation.otherPawn); 
+                    }
+                    else
+                    {
+                        adoptiveParents.Add(directPawnRelation.otherPawn); 
+                    }
                 }
             }
             return adoptiveParents;
