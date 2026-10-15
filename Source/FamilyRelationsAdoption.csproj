@@ -1,19 +1,58 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<!-- Rimworld v1.7 version -->
+
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <AssemblyName>FamilyRelationsAdoption</AssemblyName>
+    <Description>This RimWorld mod adds adoptive relationships to the game.</Description>
+    <Version>1.3.1</Version>
+    <Authors>Rycon</Authors>
+    <OutputPath>../1.7/Assemblies</OutputPath>
+    <LangVersion>latest</LangVersion>
+    <DebugType>embedded</DebugType>
+    <GenerateDependencyFile>false</GenerateDependencyFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.7.*-*" />
+    <PackageReference Include="Lib.Harmony" Version="2.4.*" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Assembly-CSharp.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityStubs">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\RimWorld\UnityStubs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Waylith">
+      <HintPath>C:\Program Files (x86)\Steam\steamapps\common\RimWorld\Waylith.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+
+</Project>
+
+<!-- Rimworld v1.6 version -->
+
+<!-- <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
     <AssemblyName>FamilyRelationsAdoption</AssemblyName>
     <Description>This RimWorld mod adds adoptive relationships to the game.</Description>
-    <Version>1.3.0</Version>
+    <Version>1.3.1</Version>
     <Authors>Rycon</Authors>
-    <OutputPath>../Assemblies</OutputPath>
+    <OutputPath>../1.6/Assemblies</OutputPath>
     <LangVersion>latest</LangVersion>
     <DebugType>embedded</DebugType>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.*-*" />
-    <PackageReference Include="Lib.Harmony" Version="2.4.2" />
+    <PackageReference Include="Lib.Harmony" Version="2.4.*" />
   </ItemGroup>
 
-</Project>
+</Project> -->
